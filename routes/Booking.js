@@ -29,7 +29,7 @@ BookingRoute.post("/Book", async (req, res) => {
 BookingRoute.get("/patient", async (req, res) => {
     const { patient } = req.body
     try {
-        const bookings = BookingModel.find({ patient })
+        const bookings = await BookingModel.find({ patient })
         if (!bookings) {
             return res.status(200).json({ msg: "No bookings found" })
         }
@@ -43,7 +43,7 @@ BookingRoute.get("/patient", async (req, res) => {
 BookingRoute.get("/doctor", async (req, res) => {
     const { doctor } = req.body
     try {
-        const bookings = BookingModel.find({ doctor })
+        const bookings = await BookingModel.find({ doctor })
         if (!bookings) {
             return res.status(200).json({ msg: "No bookings found" })
         }
