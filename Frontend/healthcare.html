@@ -12,82 +12,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
-      #navbar1{
-        background-color: rgb(19, 228, 85);
-
-      }
-      #navbar1>div{
-        height: 70px;
-        width: 100%;
-      }
-      #insidenavbar1>div{
-        height: 60px;
-        width: 80%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        padding-top: 5px;
-      }
-
-      #navbar2{
-        background-color: rgb(19, 228, 85);
-      }
-      #navbar2>div{
-        height: 40px;
-        width: 100%;
-      }
-      #insidenavbar2>div{
-        height: 60px;
-        width: 80%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        padding-top: 5px;
-      }
-      #homepage{
-        height: 70px;
-        width: 80%;
-      }
-      #homepage>div{
-        height: 70px;
-        width: 100%;      
-        margin: auto;
-        display: flex;
-        justify-content: space-between;          
-      }
-      .photo{
-        height: 600px;
-        width: 98%;
-        margin: auto;
-      }
-      .photo>img{
-        height: 300px;
-        width: 100%;
-      }
-      .logo{
-        width: 15%;
-        padding-top: 10px;
-        padding-bottom: 20px;
-      }
-      .box{
-        height: 40px;
-        width: 60%;
-        margin: 10px 20px;
-      }
-      html,
-      body {
+  /* navbar */
+  .hero {
+        background: none !important;
+        height: 0px !important;
         position: relative;
-        height: 100%;
+        color: #090000;
       }
 
-      body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-      }
 
       .swiper {
         width: 100%;
@@ -163,38 +95,39 @@
             font-weight: bold;
          }
     </style>
+     <script
+     src="https://kit.fontawesome.com/ec8478f83d.js"
+     crossorigin="anonymous"
+   ></script>
+   <link rel="stylesheet" href="./css/utility.css" />
+   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-    <div id="navbar">
-        <div id="navbar1"> 
-            <div id="insidenavbar1">
-              <div id="homepage">
-                <div>
-                  <img class="logo" src="img/LOGO.jpeg" alt="">
-                  <input class="box" placeholder="Search for Dog food pet shop...">
-                  <b onclick="signIn()" style="padding-top: 20px;color: white;">log in</b>
-                  <a href="cart.html"><b style="padding-top: 20px;color: white;">Cart</b></a>
-                </div>
-              </div>
-            </div>
-
+   <!-- navbar  -->
+   <header class="hero">
+    <div id="navbar" class="navbar top">
+      <div class="company-icon">
+        <div class="icon">
+          <img src="./image_resources/LOGO.jpeg" alt="" />
         </div>
-        <div id="navbar2">
-            <div id="insidenavbar2">
-              <div>
-                <a href="shop.html"><button class="pk">shop</button></a>
-                
-                <a href="sale"><button class="pk">Sale</button></a>
-                <a href="blog"><button class="pk">Blog</button></a>
-
-                <a href="consult"><button class="pk">Consult A Vet</button></a>
-                <a href="track"><button class="pk">Track A order</button></a>
-                
-              </div>
-            </div>
-
-        </div> 
-
+        <div class="name">
+          <h1 class="logo">
+            <span>PETCARE</span>
+          </h1>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">signIn</a></li>
+          <li><a href="#">Consult a vet</a></li>
+          <li><a href="./medicine.html">Order medicines</a></li>
+          <li><a href="#">Healthcare Products</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+ <!-- swipper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="https://www.veteva.com/wp-content/themes/porto-child/images/shopdesktopbanner1.jpg" class="d-block w-100" alt="...">
@@ -250,7 +183,7 @@
              src="image_resources\heath.png" alt="">
           </div>
      
-    </div>
+   
 <div id="info">
     <div>
         <h5>We've Got You Covered!</h5>
@@ -308,32 +241,56 @@
     <br>
     
 </div>
-
-    <div id="footer">
-      <div>
-        <h4>quick links</h4>
-        
-        <p>Shop for dog</p>
-        <p>Shop for cat</p>
-        <p>Consult a vet</p>
-        <p>Pre care blog</p>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <p>Privacy policy</p>
-        <p> General Terms and Conditions</p>
-        <p>Client Terms and Conditions</p>
-        
-      </div>
-      <div>
-        <h4>Contact us</h4>
-        <p>hello@veteva.com</p>
-        <p>+91 7483444515</p>
-        
-      </div>
-    </div>
+ <!-- footer -->
+ <footer class="footer bg-dark">
+  <div class="social">
+    <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+    <a href="#"><i class="fa-brands fa-youtube fa-2x"></i></a>
+  </div>
+  <p>Copyright &copy; 2023-PETCARE</p>
+</footer>
+<!-- end footer -->
     
 </body>
 </html>
+<script>
+    //  navbar
+    const navbar = document.getElementById("navbar");
+  let scrolled = false;
+
+  window.onscroll = function () {
+    if (window.pageYOffset > 100) {
+      navbar.classList.remove("top");
+
+      if (!scrolled) {
+        navbar.style.transform = "translateY(-90px)";
+      }
+      setTimeout(function () {
+        navbar.style.transform = "translateY(0)";
+        scrolled = true;
+      }, 200);
+    } else {
+      navbar.classList.add("top");
+      scrolled = false;
+    }
+  };
+
+  // smooth scrolling
+  $("#navbar a, .btn").on("click", function (e) {
+    if (this.hash != "") {
+      e.preventDefault();
+
+      const hash = this.hash;
+
+      $("html, body").animate(
+        {
+          scrollTop: $(hash).offset().top - 120,
+        },
+        800
+      );
+    }
+  });
+</script>
 
 
