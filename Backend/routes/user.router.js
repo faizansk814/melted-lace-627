@@ -5,14 +5,14 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 userrouter.post("/register", async (req, res) => {
-    const { name, email, gender, password } = req.body
+    const { name, email, gender, password,role } = req.body
     try {
         const isUserPresent = await UserModel.findOne({ email })
         if (isUserPresent) {
             return res.status(401).send({ msg: "User Already Present" })
         }
         bcrypt.hash(password, 5, async (err, hash) => {
-            const newUser = new UserModel({ name, email, gender, password: hash })
+            const newUser = new UserModel({ name, email, gender, password: hash ,role})
             await newUser.save()
             return res.status(200).send({ msg: "Registration Succesful" })
         })
@@ -41,6 +41,15 @@ userrouter.post("/login",async (req, res) => {
         }
     } catch (error) {
         res.status(401).send({ "msg": error.message })
+    }
+})
+
+userrouter.get("/userget", async (req, res) => {
+    try {
+        const allDoctors = await UserModel.find()
+        return res.status(200).send({ allDoctors })
+    } catch (error) {
+        return res.status(401).send({ msg: error.message })
     }
 })
 

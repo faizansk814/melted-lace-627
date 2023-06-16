@@ -85,7 +85,7 @@
                 <h2>DOCTORS</h2>
               </div>
               <div class="sc-info">
-                <b id="total-doc">00</b>
+                <b id="total-doc">0</b>
               </div>
             </div>
             <div
@@ -101,7 +101,7 @@
                 <h2>Users</h2>
               </div>
               <div class="sc-info">
-                <b id="total-pat">00</b>
+                <b id="total-pat">0</b>
               </div>
             </div>
             <div
@@ -117,7 +117,7 @@
                 <h2>Appointments</h2>
               </div>
               <div class="sc-info">
-                <b id="total-app">00</b>
+                <b id="total-app">0</b>
               </div>
             </div>
           </div>
@@ -172,7 +172,7 @@
                     <tr>
                       <th>NAME</th>
                       <th>EMAIL</th>
-                      <th>MOBILE</th>
+                      <th>Gender</th>
                     </tr>
                   </thead>
                   <tbody id="pat-tbody">
@@ -271,18 +271,6 @@
                   type="text"
                   placeholder="Enter Phone No."
                 />
-                <input
-                  name="country"
-                  required="true"
-                  type="text"
-                  placeholder="Enter Country"
-                />
-                <input
-                  name="role"
-                  required="true"
-                  type="text"
-                  placeholder="Enter Role"
-                />
                 <input id="add" type="submit" value="SUBMIT" />
               </form>
             </div>
@@ -298,7 +286,6 @@
                 <input name="name" type="text" placeholder="Enter Name" />
                 <input name="email" type="email" placeholder="Enter Email" />
                 <input name="phone" type="text" placeholder="Enter Phone No." />
-                <input name="country" type="text" placeholder="Enter Country" />
                 <input id="submit" onclick="updatetrainer(event)" type="submit" value="UPDATE" />
                 
               </form>
@@ -323,7 +310,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Contact</th>
-                    <th>Country</th>
                     <th>Remove</th>
                   </tr>
                 </thead>
@@ -362,7 +348,6 @@
                   <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Mobile</th>
                     <th>Gender</th>
                     <th>Block User</th>
                   </tr>
