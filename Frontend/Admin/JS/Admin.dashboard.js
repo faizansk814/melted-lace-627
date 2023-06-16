@@ -1,5 +1,5 @@
 // import baseURL from "./baseURL.js";
-const baseURL = ``;
+const baseURL = `http://localhost:8080/doctor/`;
 
 let depObj={
     1:"Online",
@@ -97,9 +97,9 @@ async function getStatus(){
         if(res.ok){
             let data=await res.json();
             // console.log(data)
-            document.getElementById("total-doc").innerText=data.totalTrainers;
-            document.getElementById("total-pat").innerText=data.totalUsers;
-            document.getElementById("total-app").innerText=data.totalClasses;
+            document.getElementById("total-doc").innerText=data.totalDoctorslength;
+            document.getElementById("total-pat").innerText=data.totalUserslength;
+            document.getElementById("total-app").innerText=data.totalBookinglength;
         }
     }catch(err){
         console.log(err);
@@ -109,13 +109,18 @@ async function getStatus(){
 //Get Recent 
 async function recentDocs(){
     try{
-        let res=await fetch(baseURL+"alltrainer");
+        let res=await fetch(baseURL+"doctorget");
         if(res.ok){
             let data=await res.json();
             // console.log(data);
-            let arr=data.trainers;
-            renderDocsData(data.trainers);
-            renderRecentDocs(arr[arr.length-1],arr[arr.length-2],arr[arr.length-3]);
+            let arr=data.allDoctors;
+            console.log(arr)
+            let arr1=[]
+            for(let i=0;i<3;i++){
+                arr1.push(arr[i])
+            }
+            renderDocsData(data.allDoctors);
+            renderRecentDocs(arr1)
         }
     }catch(err){
         console.log(err);
@@ -123,36 +128,53 @@ async function recentDocs(){
 }
 
 //Render Recent 
-function renderRecentDocs(elem1,elem2,elem3){
-    document.getElementById("doc-tbody").innerHTML=`
-    <tr>
-        <td>${elem1.name}</td>
-        <td>${elem1.email}</td>
-        <td>${elem1.phone}</td>
-    </tr>
-    <tr>
-        <td>${elem2.name}</td>
-        <td>${elem2.email}</td>
-        <td>${elem2.phone}</td>
-    </tr>
-    <tr>
-        <td>${elem3.name}</td>
-        <td>${elem3.email}</td>
-        <td>${elem3.phone}</td>
-    </tr>
-`
+
+function renderRecentDocs(arr){
+    let docs_tbody=document.getElementById("doc-tbody")
+    docs_tbody.innerHTML=""
+    arr.forEach((elem,ind)=>{
+        let tr=document.createElement("tr");
+
+        let name=document.createElement("td");
+        name.innerText=elem.name;
+
+        let email=document.createElement("td");
+        email.innerText=elem.email;
+
+        let phone=document.createElement("td");
+        phone.innerText=elem.phoneNo;
+
+        let country=document.createElement("td");
+        country.innerText="India";
+
+        let del=document.createElement("td");
+        del.innerText="Remove";
+        del.style.color="red";
+        del.addEventListener("click",(e)=>{
+            swal("", "Confirm Delete?", "info").then(function() {
+                deleteUser(elem._id);
+                });
+        })
+
+        tr.append(name,email,phone,country,del);
+        docs_tbody.append(tr);
+    })
 }
 
 //Get Recent Users
 async function recentPatients(){
     try{
-        let res=await fetch(baseURL+"admin/all");
+        let res=await fetch(baseURL+"userget");
         if(res.ok){
             let data=await res.json();
             // console.log(data);
-            renderPatientsData(data.usersRegistered);
-            let arr=data.usersRegistered;
-            renderRecentPatients(arr[arr.length-1],arr[arr.length-2],arr[arr.length-3]);
+            renderPatientsData(data.allDoctors);
+            let arr=data.allDoctors;
+            let arr1=[]
+            for(let i=0;i<3;i++){
+                arr1.push(arr[i])
+            }
+            renderRecentPatients(arr1)
         }
     }catch(err){
         console.log(err);
@@ -160,24 +182,37 @@ async function recentPatients(){
 }
 
 //Render Recent Users
-function renderRecentPatients(elem1,elem2,elem3){
-    document.getElementById("pat-tbody").innerHTML=`
-    <tr>
-        <td>${elem1.name}</td>
-        <td>${elem1.email}</td>
-        <td>${elem1.phone}</td>
-    </tr>
-    <tr>
-        <td>${elem2.name}</td>
-        <td>${elem2.email}</td>
-        <td>${elem2.phone}</td>
-    </tr>
-    <tr>
-        <td>${elem3.name}</td>
-        <td>${elem3.email}</td>
-        <td>${elem3.phone}</td>
-    </tr>
-`
+function renderRecentPatients(arr){
+    document.getElementById("pat-tbody").innerHTML=""
+    arr.forEach((elem,ind)=>{
+        let tr=document.createElement("tr");
+
+        let name=document.createElement("td");
+        name.innerText=elem.name;
+
+        let email=document.createElement("td");
+        email.innerText=elem.email;
+
+        let phone=document.createElement("td");
+        phone.innerText=elem.gender;
+
+        let country=document.createElement("td");
+        country.innerText="India";
+
+        let del=document.createElement("td");
+        del.innerText="Remove";
+        del.style.color="red";
+        del.addEventListener("click",(e)=>{
+            swal("", "Confirm Delete?", "info").then(function() {
+                deleteUser(elem._id);
+                });
+        })
+
+        tr.append(name,email,phone,del);
+        document.getElementById("pat-tbody").append(tr);
+    })
+    
+
 }
 
 //Get Recent 
@@ -305,10 +340,10 @@ function renderDocsData(arr){
         email.innerText=elem.email;
 
         let phone=document.createElement("td");
-        phone.innerText=elem.phone;
+        phone.innerText=elem.phoneNo;
 
         let country=document.createElement("td");
-        country.innerText=elem.country;
+        country.innerText="India";
 
         let del=document.createElement("td");
         del.innerText="Remove";
@@ -341,8 +376,6 @@ async function addDoc(){
         email: docForm.email.value,
         password: docForm.password.value,
         phone: docForm.phone.value,
-        country: docForm.country.value,
-        role: docForm.role.value
     }
     // console.log(docObj);
     try{
@@ -350,7 +383,8 @@ async function addDoc(){
             method:"POST",
             headers:{
                 
-				"content-type": "application/json"
+				"content-type": "application/json",
+                "Authorisation":`${localStorage.getItem("token")}`
 			},
             
             body: JSON.stringify(docObj)
@@ -439,12 +473,6 @@ function renderPatientsData(arr){
         let email=document.createElement("td");
         email.innerText=elem.email;
 
-        let phone=document.createElement("td");
-        phone.innerText=elem.phone;
-
-        let gender=document.createElement("td");
-        gender.innerText=elem.sex;
-
         let block=document.createElement("td");
         block.innerText="Block";
         block.style.color="red";
@@ -455,7 +483,7 @@ function renderPatientsData(arr){
         })
 
 
-        tr.append(name,email,phone,gender,block);
+        tr.append(name,email,block);
         users_tbody.append(tr);
     })
 }
