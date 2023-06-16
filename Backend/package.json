@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start:api": "nodemon index.js",
+    "start:notification": "nodemon notification.js",
+    "start:both": "concurrently \"npm run start:api\" \"npm run start:notification\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -17,5 +20,8 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
     "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
   }
 }
