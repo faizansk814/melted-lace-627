@@ -3,6 +3,7 @@ const UserModel = require('../model/user.model')
 const userrouter = express.Router()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const { BlacklistModel } = require('../Google_Oauth/models/blacklist')
 
 userrouter.post("/register", async (req, res) => {
     const { name, email, gender, password } = req.body
@@ -43,5 +44,18 @@ userrouter.post("/login",async (req, res) => {
         res.status(401).send({ "msg": error.message })
     }
 })
+
+
+userrouter.get("/logout", async (req, res) => {
+    try {
+      const token = req.headers?.authorization;
+      if (!token) return res.status(403);
+      let blackListedToken = new BlacklistModel({token});
+      await blackListedToken.save()
+      res.send({ msg: "logout succesfull" });
+    } catch (error) {
+      res.send(error.message);
+    }
+  });
 
 module.exports=userrouter
