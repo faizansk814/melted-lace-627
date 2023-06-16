@@ -1,23 +1,23 @@
 const express = require("express")
 const BookingRoute = express()
 const { BookingModel } = require("../model/Booking")
-
-BookingRoute.post("/Book", async (req, res) => {
-    const { doctor, patient, date, time } = req.body
+const auth=require("../middleware/auth")
+BookingRoute.post("/Book",auth, async (req, res) => {
+    const { doctor, patient, date, time ,email} = req.body
     try {
         if (!validateDateFormat(date)) {
             return res.status(400).json({ error: "Invalid date format. Please use dd/mm/yy format." })
         }
     
         if (!validateTimeFormat(time)) {
-            return res.status(400).json({ error: "Invalid Time format. Please use 12 hrs clock only and use only AM and PM.Time must be between 9 AM to 8PM" })
+            return res.status(400).json({ error: "Invalid Time format. Please use 24 hrs clock only and use only AM and PM.Time must be between 9 AM to 8PM" })
         }
         
-        const existingAppointment = await BookingModel.findOne({ doctor, date, time });
+        const existingAppointment = await BookingModel.findOne({ doctor,date,time,email });
         if (existingAppointment) {
             return res.status(409).json({ message: 'This time slot is already booked.' });
         }
-        const appointment = new BookingModel({ doctor, patient, date, time });
+        const appointment = new BookingModel({ doctor, patient, date, time,email });
         await appointment.save();
         return res.status(200).json({ msg: `your appointment is Schedule on  ${date} with ${doctor}` })
     } catch (error) {
@@ -26,10 +26,10 @@ BookingRoute.post("/Book", async (req, res) => {
     }
 
 })
-BookingRoute.get("/patient", async (req, res) => {
-    const { patient } = req.body
+BookingRoute.get("/patient",auth, async (req, res) => {
+    const userID = req.body.userID
     try {
-        const bookings = await BookingModel.find({ patient })
+        const bookings = await BookingModel.findById(userID)
         if (!bookings) {
             return res.status(200).json({ msg: "No bookings found" })
         }
@@ -40,10 +40,10 @@ BookingRoute.get("/patient", async (req, res) => {
     }
 
 })
-BookingRoute.get("/doctor", async (req, res) => {
-    const { doctor } = req.body
+BookingRoute.get("/doctor",auth, async (req, res) => {
+    const userID = req.body.userID
     try {
-        const bookings = await BookingModel.find({ doctor })
+        const bookings = await BookingModel.findById(userID)
         if (!bookings) {
             return res.status(200).json({ msg: "No bookings found" })
         }
@@ -64,7 +64,7 @@ BookingRoute.put("/update/:id", async (req, res) => {
         if (!validateTimeFormat) {
             return res.status(400).json({ error: "Invalid Time format. Please use 12 hrs clock only and use only AM and PM.Time must be between 9 AM to 8PM" })
         }
-        const existingAppointment = await BookingModel.findById({ appointmentId });
+        const existingAppointment = await BookingModel.findById( appointmentId );
         if (!existingAppointment) {
             return res.status(409).json({ message: 'This booking is not found' });
         }
@@ -108,7 +108,8 @@ function validateDateFormat(Date) {
     return dateRegex.test(Date);
 }
 function validateTimeFormat(time) {
-    const timeRegex = /^(0?9|10|11|12|[1-7]):(00|30) (AM|PM)$/;
+    const timeRegex = /^(1[012]|0[0-9]|2[0-3]):(30|00)$/;
+    
     return timeRegex.test(time);
 }
 module.exports={BookingRoute}
