@@ -26,6 +26,11 @@ BookingRoute.post("/Book",auth, async (req, res) => {
     }
 
 })
+
+BookingRoute.get("/allappoinment",async(req,res)=>{
+    const allappoinment=await BookingModel.find()
+    return res.status(200).send({allappoinment})
+})
 BookingRoute.get("/patient",auth, async (req, res) => {
     const userID = req.body.userID
     try {

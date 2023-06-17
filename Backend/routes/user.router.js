@@ -44,13 +44,14 @@ userrouter.post("/login",async (req, res) => {
     }
 })
 
-userrouter.get("/userget", async (req, res) => {
-    try {
-        const allDoctors = await UserModel.find()
-        return res.status(200).send({ allDoctors })
-    } catch (error) {
-        return res.status(401).send({ msg: error.message })
-    }
+userrouter.delete("/delete/:id",async (req,res)=>{
+    const {id}=req.params
+    const deleteUsers=await UserModel.findByIdAndDelete({_id:id})
+    return res.status(200).send({msg:"User Deleted"})
 })
+
+
+
+
 
 module.exports=userrouter
