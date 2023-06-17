@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:api": "nodemon index.js",
+    "start": "nodemon index.js",
     "start:notification": "nodemon notification.js",
     "start:both": "concurrently \"npm run start:api\" \"npm run start:notification\""
   },
