@@ -6,102 +6,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in & Sign up Form</title>
     <link rel="stylesheet" href="../Style/Login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
   </head>
   <body>
     <main>
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="index.html" autocomplete="off" class="sign-in-form">
+            <form id="loginForm" class="sign-in-form">
               <div class="logo">
-                <img src="../Images/petcare.png" alt="easyclass" />
-                <h4>PetCare</h4>
+                <img src="../Images/Grey Dog logo.png" alt="easyclass" />
+                <!-- <h4>PetCare</h4> -->
               </div>
 
               <div class="heading">
                 <h2>Welcome Back</h2>
-                <h6>Not registred yet?</h6>
+                <h5>Not registred yet?</h5>
                 <a href="#" class="toggle">Sign up</a>
               </div>
 
               <div class="actual-form">
                 <div class="input-wrap">
                   <input
-                    type="text"
-                    minlength="4"
+                    type="email" id="email1"
                     class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>Name</label>
-                </div>
-
-                <div class="input-wrap">
-                  <input
-                    type="password"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>Password</label>
-                </div>
-
-                <input type="submit" value="Sign In" class="sign-btn" />
-
-                <p class="text">
-                  Forgotten your password or you login datails?
-                  <a href="#">Get help</a> signing in
-                </p>
-              </div>
-            </form>
-
-            <form action="index.html" autocomplete="off" class="sign-up-form">
-              <div class="logo">
-                <img src="../Images/petcare.png" alt="easyclass" />
-                <h4>PetCare</h4>
-              </div>
-
-              <div class="heading">
-                <h2>Get Started</h2>
-                <h6>Already have an account?</h6>
-                <a href="#" class="toggle">Sign in</a>
-              </div>
-
-              <div class="actual-form">
-                <div class="input-wrap">
-                  <input
-                    type="text"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>Name</label>
-                </div>
-
-                <div class="input-wrap">
-                  <input
-                    type="email"
-                    class="input-field"
-                    autocomplete="off"
-                    required
                   />
                   <label>Email</label>
                 </div>
 
                 <div class="input-wrap">
                   <input
-                    type="password"
-                    minlength="4"
+                    type="password" id="password1"
+                    
                     class="input-field"
-                    autocomplete="off"
-                    required
+                   
+                   
                   />
                   <label>Password</label>
                 </div>
 
-                <input type="submit" value="Sign Up" class="sign-btn" />
+                <input type="submit"  class="sign-btn" value="sign in"/>
+
+                <p class="text">
+                  Forgotten your password or you login datails?
+                  <a href="#">Get help</a> signing in
+                </p>
+              </div>
+              <div class="social_icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-google"></i>
+              </div>
+            </form>
+
+            <form class="sign-up-form" id="form2">
+              <div class="logo">
+                <img src="../Images/Grey Dog logo.png" alt="easyclass" />
+                <!-- <h4>PetCare</h4> -->
+              </div>
+
+              <div class="heading">
+                <h2>Get Started</h2>
+                <h5>Already have an account?</h5>
+                <a href="#" class="toggle">Sign in</a>
+              </div>
+
+              <div  class="actual-form">
+                <div id="validate">
+                  <span id="text1"></span>
+                </div>
+                <div class="input-wrap">
+                  <input
+                    id="name"
+                    type="text"
+                    
+                    class="input-field"
+                    
+                  />
+                  <label>Name</label>
+                </div>
+                <div id="validate">
+                  <span id="text2"></span>
+                </div>
+                <div class="input-wrap">
+                  <input
+                    id="email"
+                    type="email"
+                    class="input-field"
+                    
+                  />
+                  <label>Email</label>
+                </div>
+                <div id="validate">
+                  <span id="text3"></span>
+                </div>
+                <div class="input-wrap">
+                  <input
+                    id="password"
+                    type="password"
+                    
+                    class="input-field"
+                    
+                  />
+                  <label>Password</label>
+                </div>
+
+                <input type="submit" value="sign up" id="registerBtn" class="sign-btn" placeholder="submit" />
 
                 <p class="text">
                   By signing up, I agree to the
@@ -109,14 +122,31 @@
                   <a href="#">Privacy Policy</a>
                 </p>
               </div>
+              <div class="social_icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-google"></i>
+              </div>
             </form>
           </div>
 
           <div class="carousel">
             <div class="images-wrapper">
-              <img src="https://img.freepik.com/premium-vector/pet-care-logo-mascot-template_190190-163.jpg?w=2000" class="image img-1 show" alt="" />
-              <img src="https://img.freepik.com/free-vector/mascots-bags-food-set_24877-51205.jpg?w=2000" class="image img-2" alt="" />
-              <img src="https://as1.ftcdn.net/v2/jpg/02/42/07/54/1000_F_242075427_h5SWTDqRz284M3PbJKrjj6gb3V3v0EpY.jpg" class="image img-3" alt="" />
+              <img
+                src="https://img.freepik.com/premium-vector/pet-care-logo-mascot-template_190190-163.jpg?w=2000"
+                class="image img-1 show"
+                alt=""
+              />
+              <img
+                src="https://img.freepik.com/free-vector/mascots-bags-food-set_24877-51205.jpg?w=2000"
+                class="image img-2"
+                alt=""
+              />
+              <img
+                src="https://as1.ftcdn.net/v2/jpg/02/42/07/54/1000_F_242075427_h5SWTDqRz284M3PbJKrjj6gb3V3v0EpY.jpg"
+                class="image img-3"
+                alt=""
+              />
             </div>
 
             <div class="text-slider">
