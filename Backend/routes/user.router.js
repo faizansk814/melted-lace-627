@@ -6,7 +6,12 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { BlacklistModel } = require('../Google_Oauth/models/blacklist')
 
+
 const sendVerificationMail = async (name, email, userId) => {
+
+userrouter.post("/register", async (req, res) => {
+    const { name, email, gender, password,role } = req.body
+
     try {
       const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -32,7 +37,17 @@ const sendVerificationMail = async (name, email, userId) => {
         } else {
           console.log("Email sent:", info.response);
         }
+
       });
+
+        bcrypt.hash(password, 5, async (err, hash) => {
+            const newUser = new UserModel({ name, email, gender, password: hash ,role})
+            await newUser.save()
+            return res.status(200).send({ msg: "Registration Succesful" })
+        })
+
+
+
     } catch (error) {
       console.log(error);
     }
@@ -108,6 +123,16 @@ userrouter.post("/register", async (req, res) => {
       res.send(error.message);
     }
   });
+
+
+
+userrouter.delete("/delete/:id",async (req,res)=>{
+    const {id}=req.params
+    const deleteUsers=await UserModel.findByIdAndDelete({_id:id})
+    return res.status(200).send({msg:"User Deleted"})
+})
+
+
 
 
 
