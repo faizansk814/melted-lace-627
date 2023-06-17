@@ -65,39 +65,6 @@ userrouter.post("/register", async (req, res) => {
   });
   
 
-userrouter.post("/login",async (req, res) => {
-    const { email, password } = req.body
-    try {
-        const data = await UserModel.findOne({ email })
-        if (data) {
-            bcrypt.compare(password, data.password, function (err, result) {
-                if (result) {
-                    res.status(200).send({ "token": jwt.sign({ "userID": data._id }, 'marvel'), "userdetails": data })
-                } else {
-                    res.status(401).send({ "msg": "Wrong Credintials" })
-                }
-
-            });
-        } else {
-            res.status(401).send({ "msg": "User not found" })
-        }
-    } catch (error) {
-        res.status(401).send({ "msg": error.message })
-    }
-})
-
-
-userrouter.get("/logout", async (req, res) => {
-    try {
-      const token = req.headers?.authorization;
-      if (!token) return res.status(403);
-      let blackListedToken = new BlacklistModel({token});
-      await blackListedToken.save()
-      res.send({ msg: "logout succesfull" });
-    } catch (error) {
-      res.send(error.message);
-    }
-  });
 
   userrouter.post("/login", async (req, res) => {
     try {

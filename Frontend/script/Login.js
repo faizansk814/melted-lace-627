@@ -8,7 +8,8 @@ const formlogin = document.getElementById("loginForm")
 const usernameText = document.getElementById("text1")
 const emailText = document.getElementById("text2")
 const passwordText = document.getElementById("text3")
-
+let carouselIndex = 1;
+let loginCarousel;
 inputs.forEach((inp) => {
   inp.addEventListener("focus", () => {
     inp.classList.add("active");
@@ -25,8 +26,10 @@ toggle_btn.forEach((btn) => {
   });
 });
 
-function moveSlider() {
-  let index = this.dataset.value;
+function moveSlider(index) {
+  // let index = this.dataset.value /;
+  // let index = carouselIndex
+  // console.info(index)
 
   let currentImage = document.querySelector(`.img-${index}`);
   images.forEach((img) => img.classList.remove("show"));
@@ -35,13 +38,22 @@ function moveSlider() {
   const textSlider = document.querySelector(".text-group");
   textSlider.style.transform = `translateY(${-(index - 1) * 2.2}rem)`;
 
-  bullets.forEach((bull) => bull.classList.remove("active"));
-  this.classList.add("active");
+  bullets.forEach((bull) => bull.classList?.remove("active"));
+  bullets[index-1].classList?.add("active");
+  carouselIndex+=1;
+  console.info(carouselIndex)
+  if(carouselIndex>3) carouselIndex = 1;
 }
 
 bullets.forEach((bullet) => {
-  bullet.addEventListener("click", moveSlider);
+  bullet.addEventListener("click", ()=>{
+    moveSlider(bullet.dataset.value)
+  });
 });
+
+loginCarousel = setInterval(() => {
+  moveSlider(carouselIndex)
+}, 4000);
 
 // Validation
 const emailInput = document.getElementById("email");
@@ -140,6 +152,9 @@ formEl.addEventListener("submit", async (e) => {
         alert("Email already registered")
       }
       const data = await response.json();
+      if(response.status === 200){
+        alert("Registration Successful! verification link send to your email.")
+      }
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -172,24 +187,15 @@ formlogin.addEventListener("submit", async (e) => {
       let response = await res.json();
       console.log(response.isVerified);
 
-      // Check if the email is verified
+      // Checking if the email is verified
       if (response.isVerified) {
-        // Email is already verified, proceed with login
+        // Email is verified, proceed with login
         storeUserInLocalStorage(response);
         alert("Login Successfully");
-        // window.location.href = "../dashboard.html";
+        window.location.href = "../dashboard.html";
       } else {
-        // Email is not verified, send verification request
-        let verifyRes = await verifyEmail(response.userId);
-          console.log(response.userId)
-        if (verifyRes.ok) {
-          // Verification request successful
-          storeUserInLocalStorage(response);
-          alert("Email verification required.");
-        } else {
-          // Verification request failed
-          alert("Verification request failed");
-        }
+        // Email is not verified
+        alert("Email verification required.");
       }
     } else if (res.status === 401) {
       // Wrong credentials
