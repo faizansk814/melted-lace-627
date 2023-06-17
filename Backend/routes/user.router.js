@@ -3,55 +3,46 @@ const nodemailer = require("nodemailer")
 const UserModel = require('../model/user.model')
 const userrouter = express.Router()
 const bcrypt = require('bcrypt')
+const app = express()
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
+
+
 const jwt = require('jsonwebtoken')
 const { BlacklistModel } = require('../Google_Oauth/models/blacklist')
 
 
 const sendVerificationMail = async (name, email, userId) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      requireTLS: true,
+      auth: {
+        user: "anshita674@gmail.com",
+        pass: "decehtqforbxpjza",
+      },
+    });
 
-userrouter.post("/register", async (req, res) => {
-    const { name, email, gender, password,role } = req.body
+    const mailOptions = {
+      from: "anshita674@gmail.com",
+      to: email,
+      subject: "For verification mail",
+      html: `<p>Hi ${name}, please click here to <a href="http://localhost:8080/user/verify?id=${userId}">verify</a> your mail</p>`,
+    };
 
-    try {
-      const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
-        requireTLS: true,
-        auth: {
-          user: "anshita674@gmail.com",
-          pass: "decehtqforbxpjza",
-        },
-      });
-  
-      const mailOptions = {
-        from: "anshita674@gmail.com",
-        to: email,
-        subject: "For verification mail",
-        html:` <p>Hi ${name}, please click here to <a href="http://localhost:8080/verify?id=${userId}">verify</a>your mail</p>`,
-      };
-  
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.error("Error sending email:", error);
-        } else {
-          console.log("Email sent:", info.response);
-        }
-
-      });
-
-        bcrypt.hash(password, 5, async (err, hash) => {
-            const newUser = new UserModel({ name, email, gender, password: hash ,role})
-            await newUser.save()
-            return res.status(200).send({ msg: "Registration Succesful" })
-        })
-
-
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Error sending email:", error);
+      } else {
+        console.log("Email sent:", info.response);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 userrouter.post("/register", async (req, res) => {
     try {
@@ -108,6 +99,31 @@ userrouter.post("/register", async (req, res) => {
       });
     } catch (error) {
       res.status(401).send(error.message);
+    }
+  });
+
+  userrouter.get("/verify", async (req, res) => {
+    try {
+      const userId = req.query.id;
+  
+      const user = await UserModel.updateOne(
+        { _id: userId },
+        {$set:{isVerified:true}}
+      );
+      if (!user) {
+        return res
+          .status(404)
+          .json({ error: "User not found" });
+      }
+  
+      if (user.isVerified) {
+        return res.status(200).json({ message: "Email already verified" });
+      }
+  
+      res.sendFile(path.join(__dirname, "../public/pages/verify.html"));
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: "Internal server error" });
     }
   });
   
