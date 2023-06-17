@@ -5,7 +5,9 @@ const doctorSchema=mongoose.Schema({
     name:String,
     email:String,
     password:String,
-    phoneNo:Number
+    phoneNo:Number,
+    language:Array,
+    expreince:String
 })
 
 const DoctorModel=mongoose.model("doctor",doctorSchema)

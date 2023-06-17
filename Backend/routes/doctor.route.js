@@ -18,12 +18,12 @@ doctorroute.get("/doctorget", async (req, res) => {
     }
 })
 
-doctorroute.post("/doctorpost", auth, role(["admin"]), async (req, res) => {
+doctorroute.post("/doctorpost", async (req, res) => {
     try {
-        const { image, name, email,password,phoneNo } = req.body
-        const newDoctor = new DoctorModel({ image, name, email,password,phoneNo })
+        const { image, name, email,password,phoneNo,language,expreince } = req.body
+        const newDoctor = new DoctorModel({ image, name, email,password,phoneNo,language,expreince })
         await newDoctor.save()
-        return res.status(200).send({ msg: "Doctor added succesfully" })
+        return res.status(200).send({ msg: "Doctor added succesfully",newDoctor })
     } catch (error) {
         return res.status(401).send({ msg: error.message })
     }
@@ -50,6 +50,18 @@ doctorroute.get("/userget", async (req, res) => {
     } catch (error) {
         return res.status(401).send({ msg: error.message })
     }
+})
+
+doctorroute.delete("/delete/:id",async (req,res)=>{
+    const {id}=req.params
+    const deleteUsers=await DoctorModel.findByIdAndDelete({_id:id})
+    return res.status(200).send({msg:"Doctor Deleted"})
+})
+
+doctorroute.delete("/deleteappointment/:id",async (req,res)=>{
+    const {id}=req.params
+    const deleteUsers=await BookingModel.findByIdAndDelete({_id:id})
+    return res.status(200).send({msg:"Booking deleted Deleted"})
 })
 
 
