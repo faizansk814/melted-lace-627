@@ -1,13 +1,15 @@
 const jwt=require('jsonwebtoken')
+const UserModel=require("../model/user.model")
 
 
 const auth=(req,res,next)=>{
-    const token=req.headers.authorization.split(" ")[1]
+    const token=req.headers.authorization
     if(token){
-        jwt.verify(token, 'marvel', function(err, decoded) {
+        jwt.verify(token, 'marvel',async function(err, decoded) {
             if(decoded){
                 req.body.userID=decoded.userID
-                req.body.quantity=1
+                const user=await UserModel.findOne({_id:decoded.userID})
+                req.role=user.role
                 next()
             }else{
                 res.status(401).send({"msg":"Wrong Credentials"})

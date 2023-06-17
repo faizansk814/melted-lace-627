@@ -1,32 +1,73 @@
-const express=require('express')
+const express = require('express')
 const role = require('../middleware/role')
 const auth = require('../middleware/auth')
 const DoctorModel = require('../model/doctor.model')
+const { BookingModel } = require('../model/Booking')
+const UserModel = require('../model/user.model')
 
 
-const doctorroute=express.Router()
+const doctorroute = express.Router()
 
 
-doctorroute.get("/doctorget",async (req,res)=>{
+doctorroute.get("/doctorget", async (req, res) => {
     try {
-        const allDoctors=await DoctorModel.find()
-        return res.status(200).send({allDoctors})
+        const allDoctors = await DoctorModel.find()
+        return res.status(200).send({ allDoctors })
     } catch (error) {
-        return res.status(401).send({msg:error.message})
+        return res.status(401).send({ msg: error.message })
     }
 })
 
-doctorroute.post("/doctorpost",auth,role(["admin"]),async (req,res)=>{
+doctorroute.post("/doctorpost", async (req, res) => {
     try {
-       const {image,name,skills,language}=req.body
-        const newDoctor=new DoctorModel({image,name,skills,language})
+        const { image, name, email,password,phoneNo,language,expreince } = req.body
+        const newDoctor = new DoctorModel({ image, name, email,password,phoneNo,language,expreince })
         await newDoctor.save()
-        return res.status(200).send({msg:"Doctor added succesfully"})
+        return res.status(200).send({ msg: "Doctor added succesfully",newDoctor })
     } catch (error) {
-        return res.status(401).send({msg:error.message})
+        return res.status(401).send({ msg: error.message })
     }
+})
+
+doctorroute.get("/admin/all", async (req, res) => {
+    try {
+        const totalDoctors = await DoctorModel.find()
+        const totalDoctorslength = totalDoctors.length
+        const totalBooking = await BookingModel.find()
+        const totalBookinglength = totalBooking.length
+        const totalUsers = await UserModel.find()
+        const totalUserslength = totalUsers.length
+        res.status(200).send({ totalDoctorslength, totalBookinglength, totalUserslength })
+    } catch (error) {
+        return res.status(401).send({ msg: error.message })
+    }
+})
+
+doctorroute.get("/userget", async (req, res) => {
+    try {
+        const allDoctors = await UserModel.find()
+        return res.status(200).send({ allDoctors })
+    } catch (error) {
+        return res.status(401).send({ msg: error.message })
+    }
+})
+
+doctorroute.delete("/delete/:id",async (req,res)=>{
+    const {id}=req.params
+    const deleteUsers=await DoctorModel.findByIdAndDelete({_id:id})
+    return res.status(200).send({msg:"Doctor Deleted"})
+})
+
+doctorroute.delete("/deleteappointment/:id",async (req,res)=>{
+    const {id}=req.params
+    const deleteUsers=await BookingModel.findByIdAndDelete({_id:id})
+    return res.status(200).send({msg:"Booking deleted Deleted"})
 })
 
 
 
-module.exports=doctorroute
+
+
+
+
+module.exports = doctorroute

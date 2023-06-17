@@ -1,94 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order Medicine</title>
+    <link rel="icon" href="./image_resources/LOGO.jpeg" />
     <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-  />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <style>
-      #navbar1{
-        background-color: rgb(19, 228, 85);
-
-      }
-      #navbar1>div{
-        height: 70px;
-        width: 100%;
-      }
-      #insidenavbar1>div{
-        height: 60px;
-        width: 80%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        padding-top: 5px;
-      }
-
-      #navbar2{
-        background-color: rgb(19, 228, 85);
-      }
-      #navbar2>div{
-        height: 40px;
-        width: 100%;
-      }
-      #insidenavbar2>div{
-        height: 60px;
-        width: 80%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        padding-top: 5px;
-      }
-      #homepage{
-        height: 70px;
-        width: 80%;
-      }
-      #homepage>div{
-        height: 70px;
-        width: 100%;      
-        margin: auto;
-        display: flex;
-        justify-content: space-between;          
-      }
-      .photo{
-        height: 600px;
-        width: 98%;
-        margin: auto;
-      }
-      .photo>img{
-        height: 300px;
-        width: 100%;
-      }
-      .logo{
-        width: 15%;
-        padding-top: 10px;
-        padding-bottom: 20px;
-      }
-      .box{
-        height: 40px;
-        width: 60%;
-        margin: 10px 20px;
-      }
-      html,
-      body {
+      /* navbar */
+      .hero {
+        background: none !important;
+        height: 90px !important;
         position: relative;
-        height: 100%;
+        color: #090000;
       }
 
-      body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-      }
-
+      /* swiper */
       .swiper {
         width: 100%;
         height: 100%;
@@ -120,6 +62,7 @@
         height: 100%;
         object-fit: cover;
       }
+
       #carouselExampleSlidesOnly1{
         height: 200px;
         width: 100%; 
@@ -170,55 +113,80 @@
          #product>div>img{
           width:100%
          }
+
     </style>
-</head>
-<body>
-    <div id="navbar">
-        <div id="navbar1"> 
-            <div id="insidenavbar1">
-              <div id="homepage">
-                <div>
-                  <img class="logo" src="img/LOGO.jpeg" alt="">
-                  <input class="box" placeholder="Search for Dog food pet shop...">
-                  <b onclick="signIn()" style="padding-top: 20px;color: white;">log in</b>
-                  <a href="cart.html"><b style="padding-top: 20px;color: white;">Cart</b></a>
-                </div>
-              </div>
-            </div>
 
+    <!-- <link rel="stylesheet" href="./css/lightbox.min.css"> -->
+    <script
+      src="https://kit.fontawesome.com/ec8478f83d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/utility.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- navbar  -->
+    <header class="hero">
+      <div id="navbar" class="navbar top">
+        <div class="company-icon">
+          <div class="icon">
+            <img src="./image_resources/LOGO.jpeg" alt="" />
+          </div>
+          <div class="name">
+            <h1 class="logo">
+              <span>PETCARE</span>
+            </h1>
+          </div>
         </div>
-        <div id="navbar2">
-            <div id="insidenavbar2">
-              <div>
-                <a href="shop.html"><button class="pk">shop</button></a>
-                
-                <a href="sale"><button class="pk">Sale</button></a>
-                <a href="blog"><button class="pk">Blog</button></a>
-
-                <a href="consult"><button class="pk">Consult A Vet</button></a>
-                <a href="track"><button class="pk">Track A order</button></a>
-                
-              </div>
-            </div>
-
-        </div> 
+        <nav>
+          <ul>
+            <li><a href="#home">signIn</a></li>
+            <li><a href="#">Consult a vet</a></li>
+            <li><a href="./medicine.html">Order medicines</a></li>
+            <li><a href="#">Healthcare Products</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- swiper -->
 
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://www.veteva.com/wp-content/themes/porto-child/images/shopdesktopbanner1.jpg" class="d-block w-100" alt="...">
+        <div class="swiper-slide">
+          <img
+            src="https://www.veteva.com/wp-content/themes/porto-child/images/shopdesktopbanner1.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
         </div>
-        <div class="swiper-slide"><img src="https://www.veteva.com/wp-content/themes/porto-child/images/shopdesktopbanner2.jpg" class="d-block w-100" alt="...">
+        <div class="swiper-slide">
+          <img
+            src="https://www.veteva.com/wp-content/themes/porto-child/images/shopdesktopbanner2.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
         </div>
-        <div class="swiper-slide"><img src="https://www.veteva.com/wp-content/themes/porto-child/images/shopdesktopbannernew3.jpg" class="d-block w-100" alt="...">
+        <div class="swiper-slide">
+          <img
+            src="https://www.veteva.com/wp-content/themes/porto-child/images/shopdesktopbannernew3.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
         </div>
-        <div class="swiper-slide"><img src="https://www.veteva.com/wp-content/themes/porto-child/images/shopdesktopbanner1.jpg" class="d-block w-100" alt="...">
+        <div class="swiper-slide">
+          <img
+            src="https://www.veteva.com/wp-content/themes/porto-child/images/shopdesktopbanner1.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
         </div>
-        
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
     </div>
+
 <div>
     <img width="100%" src="img/middle.png" alt="">
 </div>
@@ -281,130 +249,231 @@
         </div>
        
 
-          -->
+          
           <!-- <div>
+
             <img  width="100%"
              src="https://www.veteva.com/wp-content/themes/porto-child/images/easyasimg1.png" alt="">
           </div> -->
-     
-    </div>
-<div id="info">
-    <div>
+
+    <div id="info">
+      <div>
         <h5>We've Got You Covered!</h5>
-        <p>Searching for vets near you, a pet clinic near you or a veterinary hospital near you at odd hours ? Don't worry, we have got you covered. Download the veteva app now and do an online vet consultation within 10 minutes 24/7. Explore India's trusted veterinary doctors with average experience of 15+ years on our platform.</p>
-    </div>
-    <br>
-    <br>
-    <div>
+        <p>
+          Searching for vets near you, a pet clinic near you or a veterinary
+          hospital near you at odd hours ? Don't worry, we have got you covered.
+          Download the veteva app now and do an online vet consultation within
+          10 minutes 24/7. Explore India's trusted veterinary doctors with
+          average experience of 15+ years on our platform.
+        </p>
+      </div>
+      <br />
+      <br />
+      <div>
         <h5>Say Goodbye To All Other Platforms!</h5>
-        <p>A Must Have App for all Pet Parents with our All-In-One-App. Access to India's Top Vets Payment Video Consultation E-Prescription Medicine Doorstep Delivery</p>
-    </div>
-    <br>
-    <br>
-    <div>
+        <p>
+          A Must Have App for all Pet Parents with our All-In-One-App. Access to
+          India's Top Vets Payment Video Consultation E-Prescription Medicine
+          Doorstep Delivery
+        </p>
+      </div>
+      <br />
+      <br />
+      <div>
         <h5>Why Are We The Most Trusted Pet Care Partner?</h5>
-        <p>The only pet care partner who can provide online vet consultation 24/7. With our instant consult option, you can consult with a veterinary doctor almost instantly. All this is possible through our All-In-One Veteva Mobile App</p>
-    </div>
-    <br>
-    <br>
-    <div>
+        <p>
+          The only pet care partner who can provide online vet consultation
+          24/7. With our instant consult option, you can consult with a
+          veterinary doctor almost instantly. All this is possible through our
+          All-In-One Veteva Mobile App
+        </p>
+      </div>
+      <br />
+      <br />
+      <div>
         <h5>Your Pet’s Healthcare From The Comfort Of Your Home!</h5>
-        <p>Did you know that 80% of your pet's issues can be solved online? Our veterinary doctors on our platform have an average experience of 15+ years and have been able to accurately diagnose issues with the help of our technology. With an added advantage of doorstep medicine delivery, you can avail all the services from the comfort of your home.</p>
-    </div>
-    <br>
-    <br>
-    <div>
+        <p>
+          Did you know that 80% of your pet's issues can be solved online? Our
+          veterinary doctors on our platform have an average experience of 15+
+          years and have been able to accurately diagnose issues with the help
+          of our technology. With an added advantage of doorstep medicine
+          delivery, you can avail all the services from the comfort of your
+          home.
+        </p>
+      </div>
+      <br />
+      <br />
+      <div>
         <h5>Tips On Choosing A Vet For Online Video Consultation</h5>
-        <p>Veteva Platform hosts India's trusted and reliable vets. You'll be able to consult a vet who speaks your language. You'll also be able to choose a vet specialists for your pet, be it an issue in dermatology (skin), oncology (cancer), orthopedic (joints and bones), dental etc.</p>
-    </div>
-    <br>
-    <br>
-    <div>
+        <p>
+          Veteva Platform hosts India's trusted and reliable vets. You'll be
+          able to consult a vet who speaks your language. You'll also be able to
+          choose a vet specialists for your pet, be it an issue in dermatology
+          (skin), oncology (cancer), orthopedic (joints and bones), dental etc.
+        </p>
+      </div>
+      <br />
+      <br />
+      <div>
         <h5>Issues That Can Be Diagnosed Online</h5>
-        <p>New Pet Parenting, Diet & nutrition, Diarrhea & vomiting, Flea & tick, Skin itching & rashes, Hair loss, General advice, Allergies, Ear infection, Eye infection, Lumps & bumps, Separation anxiety, Dental care, Vaccination advice</p>
-    </div>
-    <br>
-    <br>
-    <div>
-        <h5>Why Choose Traditional In-Person Visits When There Are Better Ways ?</h5>
-        <p>If you are finding yourself struggling with the following: Vets near me, Veterinarian near me, Vet clinic near me, Pet Clinic near me, Veterinary Hospital near me, Veterinary Doctor near me, Pet Hospital near me, Veterinary clinic near me... Then, take advantage of the Veteva Mobile App and consult with our vets instantly, anytime, anywhere.</p>
-    </div>
-    <br>
-    <br>
-    <div>
+        <p>
+          New Pet Parenting, Diet & nutrition, Diarrhea & vomiting, Flea & tick,
+          Skin itching & rashes, Hair loss, General advice, Allergies, Ear
+          infection, Eye infection, Lumps & bumps, Separation anxiety, Dental
+          care, Vaccination advice
+        </p>
+      </div>
+      <br />
+      <br />
+      <div>
+        <h5>
+          Why Choose Traditional In-Person Visits When There Are Better Ways ?
+        </h5>
+        <p>
+          If you are finding yourself struggling with the following: Vets near
+          me, Veterinarian near me, Vet clinic near me, Pet Clinic near me,
+          Veterinary Hospital near me, Veterinary Doctor near me, Pet Hospital
+          near me, Veterinary clinic near me... Then, take advantage of the
+          Veteva Mobile App and consult with our vets instantly, anytime,
+          anywhere.
+        </p>
+      </div>
+      <br />
+      <br />
+      <div>
         <h5>Are You Trying To Find The Right Medicines For Your Pet?</h5>
-        <p>Pet Medicines are hard to find because there are limited number of pet pharmacies across India. If you are struggling with the following: Pet Medical shop near me, Veterinary Medical Shop near me, Pet Medical Store near me, Animal Medical Store near me, Dog Medical Shop near me, Pet Medical, Veterinary Medical Shop near me, Veterinary Shop near me, Veterinary Medicine Shop near me, Veterinary Medicine Online, Veterinary Medicine Online App, Veterinary Medicine Online, Dog Medicine Online, Pet Medicine Online, Order Medicine Online near me, Vet Medicine Online, Veterinary Medicine Online App, Animal Medicine Online, Medicine Online near me, Dog Medicine, Pet Medicine Shop near me Then, look no further. You have come to the right place. Visit www.veteva.com/shop and you'll find everything that you need on India's Biggest E-Pharmacy for Pets.</p>
-    </div>
-    <br>
-    <br>
-    <div>
+        <p>
+          Pet Medicines are hard to find because there are limited number of pet
+          pharmacies across India. If you are struggling with the following: Pet
+          Medical shop near me, Veterinary Medical Shop near me, Pet Medical
+          Store near me, Animal Medical Store near me, Dog Medical Shop near me,
+          Pet Medical, Veterinary Medical Shop near me, Veterinary Shop near me,
+          Veterinary Medicine Shop near me, Veterinary Medicine Online,
+          Veterinary Medicine Online App, Veterinary Medicine Online, Dog
+          Medicine Online, Pet Medicine Online, Order Medicine Online near me,
+          Vet Medicine Online, Veterinary Medicine Online App, Animal Medicine
+          Online, Medicine Online near me, Dog Medicine, Pet Medicine Shop near
+          me Then, look no further. You have come to the right place. Visit
+          www.veteva.com/shop and you'll find everything that you need on
+          India's Biggest E-Pharmacy for Pets.
+        </p>
+      </div>
+      <br />
+      <br />
+      <div>
         <h5>Our Services Are Popular Across India</h5>
-        <p>Delhi | Bangalore | Mumbai | Chennai | Kolkata | Pune | Hyderabad | Ahmedabad | Rajasthan | Jaipur | Kerala | Jodhpur | Jabalpur | Trivandram | Patna | Chandigarh | Vizag | Bhubaneswar | Lucknow | Ranchi | Guwahati | Agra | Kanpur | Dehradun | Kalyan | Raipur | Nagpur | Gwailor | Jamshedpur | Samastipur | Indore | Vodadara | Bhopal | Gorakhpur | Chembur | Dombivli | Faridabad | Hebbal | Kollam | Cochin | Indiranagar | Gurgaon</p>
+        <p>
+          Delhi | Bangalore | Mumbai | Chennai | Kolkata | Pune | Hyderabad |
+          Ahmedabad | Rajasthan | Jaipur | Kerala | Jodhpur | Jabalpur |
+          Trivandram | Patna | Chandigarh | Vizag | Bhubaneswar | Lucknow |
+          Ranchi | Guwahati | Agra | Kanpur | Dehradun | Kalyan | Raipur |
+          Nagpur | Gwailor | Jamshedpur | Samastipur | Indore | Vodadara |
+          Bhopal | Gorakhpur | Chembur | Dombivli | Faridabad | Hebbal | Kollam
+          | Cochin | Indiranagar | Gurgaon
+        </p>
+      </div>
+      <br />
+      <br />
     </div>
-    <br>
-    <br>
-    
-</div>
 
-    <div id="footer">
-      <div>
-        <h4>quick links</h4>
-        
-        <p>Shop for dog</p>
-        <p>Shop for cat</p>
-        <p>Consult a vet</p>
-        <p>Pre care blog</p>
+    <!-- footer -->
+    <footer class="footer bg-dark">
+      <div class="social">
+        <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube fa-2x"></i></a>
       </div>
-      <div>
-        <h4>Resources</h4>
-        <p>Privacy policy</p>
-        <p> General Terms and Conditions</p>
-        <p>Client Terms and Conditions</p>
-        
-      </div>
-      <div>
-        <h4>Contact us</h4>
-        <p>hello@veteva.com</p>
-        <p>+91 7483444515</p>
-        
-      </div>
-    </div>
-    
-</body>
+      <p>Copyright &copy; 2023-PETCARE</p>
+    </footer>
+    <!-- end footer -->
+  </body>
 </html>
-<script src="index.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
-  function displayCard(data){
-        // document.querySelector("#container").innerHTML="";
-        data.forEach(function(elem){
-        let div = document.createElement("div")
+  // swipper
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+  // display card
 
-        let image = document.createElement("img")
-        image.setAttribute("src",elem.avatar)
-        let title = document.createElement("h3")
-        title.innerText= elem.title
-        let cost = document.createElement("p");
-        cost.innerText="Price"+" "+elem.price+"/-"
-        let dis = document.createElement("p")
-        dis.innerText="Save"+" "+elem.save+"/-"
+  function displayCard(data) {
+    // document.querySelector("#container").innerHTML="";
+    data.forEach(function (elem) {
+      let div = document.createElement("div");
 
-        let btn = document.createElement("button")
-        btn.innerText="Add to Cart";
-        btn.addEventListener("click",function(){
-            cartItems.push(elem)
-            localStorage.setItem("cartProducts",JSON.stringify(cartItems))
-        })
+      let image = document.createElement("img");
+      image.setAttribute("src", elem.avatar);
+      let title = document.createElement("h3");
+      title.innerText = elem.title;
+      let cost = document.createElement("p");
+      cost.innerText = "Price" + " " + elem.price + "/-";
+      let dis = document.createElement("p");
+      dis.innerText = "Save" + " " + elem.save + "/-";
 
-        div.append(image,title,cost,dis,btn)
+      let btn = document.createElement("button");
+      btn.innerText = "Add to Cart";
+      btn.addEventListener("click", function () {
+        cartItems.push(elem);
+        localStorage.setItem("cartProducts", JSON.stringify(cartItems));
+      });
 
-        document.querySelector("#container").append(div)
-        })
-        
-    }
-   function signIn(){
-    window.location.assign("signin.html")
+      div.append(image, title, cost, dis, btn);
+
+      document.querySelector("#container").append(div);
+    });
+  }
+  function signIn() {
+    window.location.assign("signin.html");
     // console.log(100)
-   }
-</script>
+  }
 
+  //  navbar
+  const navbar = document.getElementById("navbar");
+  let scrolled = false;
+
+  window.onscroll = function () {
+    if (window.pageYOffset > 100) {
+      navbar.classList.remove("top");
+
+      if (!scrolled) {
+        navbar.style.transform = "translateY(-90px)";
+      }
+      setTimeout(function () {
+        navbar.style.transform = "translateY(0)";
+        scrolled = true;
+      }, 200);
+    } else {
+      navbar.classList.add("top");
+      scrolled = false;
+    }
+  };
+
+  // smooth scrolling
+  $("#navbar a, .btn").on("click", function (e) {
+    if (this.hash != "") {
+      e.preventDefault();
+
+      const hash = this.hash;
+
+      $("html, body").animate(
+        {
+          scrollTop: $(hash).offset().top - 120,
+        },
+        800
+      );
+    }
+  });
+</script>
