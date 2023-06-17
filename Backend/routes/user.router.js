@@ -39,26 +39,19 @@ const sendVerificationMail = async (name, email, userId) => {
   };
 
 userrouter.post("/register", async (req, res) => {
+    const { name, email, gender, password } = req.body
     try {
-      const { name, email, password } = req.body;
-  
-      const userExist = await UserModel.findOne({ email });
-  
-      if (userExist) {
-        return res.status(401).send({ msg: "User Already Registered" });
-      }
-  
-      const hash = await bcrypt.hash(password, 8);
-  
-      const newUser = new UserModel({ name, email, password: hash });
-  
-      const userData = await newUser.save();
-      if (userData) {
-        sendVerificationMail(name, email, userData._id);
-        res.status(200).json({ msg: "Registration successful", userData });
-      } else {
-        res.status(401).json({ msg: "Registration failed" });
-      }
+        const isUserPresent = await UserModel.findOne({ email })
+        if (isUserPresent) {
+            return res.status(401).send({ msg: "User Already Present" })
+        }
+        bcrypt.hash(password, 5, async (err, hash) => {
+            const newUser = new UserModel({ name, email, gender, password: hash })
+            await newUser.save()
+            return res.status(200).send({ msg: "Registration Succesful" })
+        })
+
+
     } catch (error) {
       res.status(400).json({ msg: "Something went wrong" });
     }
@@ -110,5 +103,14 @@ userrouter.post("/register", async (req, res) => {
   });
 
 
+
+userrouter.get("/userget", async (req, res) => {
+    try {
+        const allDoctors = await UserModel.find()
+        return res.status(200).send({ allDoctors })
+    } catch (error) {
+        return res.status(401).send({ msg: error.message })
+    }
+})
 
 module.exports=userrouter

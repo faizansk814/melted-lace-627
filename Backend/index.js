@@ -1,11 +1,10 @@
-const express=require("express")
-const cors=require("cors")
+const express = require("express")
+const cors = require("cors")
+const app = express()
 require("dotenv").config()
-const port=process.env.PORT
 const {BookingRoute}=require("./routes/Booking")
 const{DataBase}=require("./DBconnection")
 const userrouter = require("./routes/user.router")
-const app=express()
 const path = require("path");
 const UserModel = require("./model/user.model")
 app.use(express.static(path.join(__dirname, "public")));
@@ -36,11 +35,9 @@ app.get("/verify", async (req, res) => {
 app.use("/user",userrouter);
 
 
-app.use("/appointment",BookingRoute)
-
 app.listen(port, () => {
     try {
-       DataBase()
+        DataBase()
         console.log(`Server is running on port${port}`)
     } catch (error) {
         console.error(error)
