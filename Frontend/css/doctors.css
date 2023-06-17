@@ -1,0 +1,61 @@
+main{
+    width: 100%;
+    margin: auto;
+}
+#main{
+    display: grid;
+    grid-template-areas:"";
+    /* grid-template-columns: repeat(200px, 2000px); */
+    justify-content: space-around;
+    /* text-align: center; */
+   
+
+}
+#filter{
+    border: 2px solid blue;
+  
+}
+#cards{
+
+    border: 1px solid black;
+}
+.card{
+    display: flex;
+}
+.img-info{
+    display: flex;
+}
+.img-info #dctrimg img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+#dctrinfo >h4 >span,
+#dctrinfo >p
+{
+    font-size: x-small;
+    font-weight: 200;
+
+}
+#dctrinfo >span{
+    border: 1px dashed black;
+    border-radius: 5px;
+}
+.vc-app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.vc{
+    /* border: 1px solid black; */
+    border-radius: 2px;
+    background-color: green;
+    text-align: center;
+    color: white;
+}
+.BOOK{
+    border-radius: 2px;
+    border: 1px solid blue;
+    text-align: center;
+    color: blue;
+}
