@@ -2,16 +2,16 @@ const express = require("express")
 const BookingRoute = express()
 const { BookingModel } = require("../model/Booking")
 const auth=require("../middleware/auth")
-BookingRoute.post("/check", auth,async (req, res) => {
+BookingRoute.post("/check",async (req, res) => {
     const { doctor, patient, date, time ,email} = req.body
     try {
-        if (!validateDateFormat(date)) {
-            return res.status(400).json({ error: "Invalid date format. Please use dd/mm/yy format." })
-        }
+        // if (!validateDateFormat(date)) {
+        //     return res.status(400).json({ error: "Invalid date format. Please use dd/mm/yy format." })
+        // }
     
-        if (!validateTimeFormat(time)) {
-            return res.status(400).json({ error: "Invalid Time format. Please use 24 hrs clock only and use only AM and PM.Time must be between 9 AM to 8PM" })
-        }
+        // if (!validateTimeFormat(time)) {
+        //     return res.status(400).json({ error: "Invalid Time format. Please use 24 hrs clock only and use only AM and PM.Time must be between 9 AM to 8PM" })
+        // }
         
         const existingAppointment = await BookingModel.findOne({ doctor,date,time,email });
         if (existingAppointment) {

@@ -267,6 +267,7 @@
   data.forEach((el) => {
     UI(el);
   });
+  
   function UI(el) {
     let cards = document.querySelector("#cards");
     let div = document.createElement("div");
@@ -318,7 +319,7 @@
     Book.innerHTML = `<i class="fa-regular fa-calendar-days" style="color: #0066ff;"></i>Book Appointment`;
     Book.addEventListener("click", () => {
       localStorage.setItem("doctor", JSON.stringify(el));
-      location.href = "./Appointment.html";
+    window.location.href = "./Appointment.html";
     });
     vc_app.append(vc, Book);
 

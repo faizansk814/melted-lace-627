@@ -5,7 +5,7 @@ const Payment = express();
 
 Payment.post('/payment', async (req, res) => {
     try {
-        const { amount, cardNumber, cvv, expiry, doctor, patient, email, date, time,name } = req.body;
+        const { amount, cardNumber, cvv, expiry, doctor, patient, email, date, time} = req.body;
 
         if (!amount || !cardNumber || !cvv || !expiry) {
             return res.status(400).json({ error: 'Missing payment information' });
@@ -43,7 +43,7 @@ Payment.post('/payment', async (req, res) => {
             to: email,
             subject: "Payment Successful",
             html: `<div>
-            <p>Hi ${name}, Your Payment is successful and your slot is booked on ${date} at ${time}</p>
+            <p>Hi ${patient}, Your Payment is successful and your slot is booked on ${date} at ${time}</p>
             </div>`,
           };
       
