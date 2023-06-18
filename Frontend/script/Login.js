@@ -114,7 +114,7 @@ function validatePassword() {
 
 // 
 const registerBtn = document.getElementById("registerBtn");
-let BASEURL = "http://localhost:8080"
+let BASEURL = "https://gentle-sunglasses-wasp.cyclic.app"
 formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -139,7 +139,7 @@ formEl.addEventListener("submit", async (e) => {
         password: passwordInput.value,
       };
 
-      const response = await fetch(`http://localhost:8080/user/register`, {
+      const response = await fetch(`https://gentle-sunglasses-wasp.cyclic.app/user/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 const sendLink = document.getElementById("sendLink");
 const email = document.getElementById("email");
 
-let BASEURL = "http://localhost:8080";
+let BASEURL = "https://gentle-sunglasses-wasp.cyclic.app";
 
 sendLink.addEventListener("submit", async (e) => {
   e.preventDefault();

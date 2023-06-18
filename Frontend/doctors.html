@@ -29,7 +29,7 @@
       <div id="navbar" class="navbar top">
         <div class="company-icon">
           <div class="icon">
-            <img  href="./index.html" src="./image_resources/LOGO.jpeg" alt="" />
+            <img  id="home" src="./image_resources/LOGO.jpeg" alt="" />
           </div>
           <div class="name">
             <h1 class="logo">
@@ -326,4 +326,11 @@
     div.append(img_info, vc_app);
     cards.append(div);
   }
+
+   // go home
+   let home=document.getElementById("home")
+  home.addEventListener("click",(e)=>{
+    e.preventDefault()
+   window.location.href='./index.html'
+  })
 </script>

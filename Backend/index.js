@@ -3,16 +3,17 @@ const cors = require("cors")
 require("dotenv").config()
 const port = process.env.PORT
 const cookiParser = require("cookie-parser");
+const app = express()
+const bodyParser = require('body-parser');
+app.use(express.json())
+app.use(cors())
 const { BookingRoute } = require("./routes/Booking")
 const { DataBase } = require("./DBconnection")
 const { Payment } = require("./routes/payment")
 const userrouter = require("./routes/user.router")
 const doctorroute = require("./routes/doctor.route")
 const auth = require("./middleware/auth")
-const app = express()
-const bodyParser = require('body-parser');
-app.use(express.json())
-app.use(cors())
+
 app.use(cookiParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
