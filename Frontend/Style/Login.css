@@ -194,22 +194,33 @@ label {
   transition: 0.3s;
 }
 
+.forgetbtn{
+  color: #5c5858;
+  font-size: 1rem;
+}
+.forgetbtn a{
+  color: #01081b;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
 .sign-btn:hover {
   background-color: #8371fd;
 }
 
 .text {
-  color: #bbb;
-  font-size: 0.7rem;
+  color: #5c5858;
+  font-size: 0.9rem;
 }
 
 .text a {
-  color: #bbb;
+  color: #2a52be;
   transition: 0.3s;
+ 
 }
 
 .text a:hover {
-  color: #8371fd;
+  color: #d335b6;
 }
 
 main.sign-up-mode form.sign-in-form {
