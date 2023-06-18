@@ -13,7 +13,6 @@ app.use(cors())
 
 app.use("/user",userrouter);
 app.use("/doctor",doctorroute)
-app.use(auth)
 app.use("/appointment",BookingRoute)
 
 app.listen(process.env.PORT, () => {
