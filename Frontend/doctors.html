@@ -29,7 +29,7 @@
       <div id="navbar" class="navbar top">
         <div class="company-icon">
           <div class="icon">
-            <img src="./image_resources/LOGO.jpeg" alt="" />
+            <img  href="./index.html" src="./image_resources/LOGO.jpeg" alt="" />
           </div>
           <div class="name">
             <h1 class="logo">
@@ -39,11 +39,11 @@
         </div>
         <nav>
           <ul>
-            <li><a href="#home">signIn</a></li>
-            <li><a href="#">Consult a vet</a></li>
-            <li><a href="./medicine.html">Order medicines</a></li>
-            <li><a href="./healthcare.html">Healthcare Products</a></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><a href="./Pages/Login.html">signIn</a></li>
+            <li><a href="#">Consult</a></li>
+            <li><a href="./medicine.html">medicines</a></li>
+            <li><a href="./healthcare.html">Products</a></li>
+    
           </ul>
         </nav>
       </div>
@@ -210,12 +210,48 @@
   let data = [
     {
       img: "./image_resources/team/person1.jpg",
-      name: "Rajneesh",
+      name: "Faiyaz",
       qualification: "M.v.sc.",
       experience: "veterinarian [9 Years Experience]",
       pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
-      language: ["english", "hindi"],
-      fees: 900,
+      language:  "hindi",
+      fees: 800,
+    },
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "Raju",
+      qualification: "M.v.sc.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language:"english", 
+      fees: 7800,
+    },
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "Aditya",
+      qualification: "M.v.sc.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language: "Bihari",
+      fees: 2000,
+    },
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "suraj",
+      qualification: "M.v.sc.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language: "Marathi",
+      fees: 500,
+    },
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "Anshita",
+      qualification: "M.B.B.S.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language:  "hindi",
+      fees: 3000,
     },
     {
       img: "./image_resources/team/person1.jpg",
@@ -223,43 +259,7 @@
       qualification: "M.v.sc.",
       experience: "veterinarian [9 Years Experience]",
       pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
-      language: ["english", "hindi"],
-      fees: 900,
-    },
-    {
-      img: "./image_resources/team/person1.jpg",
-      name: "Rajneesh",
-      qualification: "M.v.sc.",
-      experience: "veterinarian [9 Years Experience]",
-      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
-      language: ["english", "hindi"],
-      fees: 900,
-    },
-    {
-      img: "./image_resources/team/person1.jpg",
-      name: "Rajneesh",
-      qualification: "M.v.sc.",
-      experience: "veterinarian [9 Years Experience]",
-      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
-      language: ["english", "hindi"],
-      fees: 900,
-    },
-    {
-      img: "./image_resources/team/person1.jpg",
-      name: "Rajneesh",
-      qualification: "M.v.sc.",
-      experience: "veterinarian [9 Years Experience]",
-      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
-      language: ["english", "hindi"],
-      fees: 900,
-    },
-    {
-      img: "./image_resources/team/person1.jpg",
-      name: "Rajneesh",
-      qualification: "M.v.sc.",
-      experience: "veterinarian [9 Years Experience]",
-      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
-      language: ["english", "hindi"],
+      language: "english",
       fees: 900,
     },
   ];
@@ -267,7 +267,7 @@
   data.forEach((el) => {
     UI(el);
   });
-  
+
   function UI(el) {
     let cards = document.querySelector("#cards");
     let div = document.createElement("div");
@@ -296,12 +296,12 @@
     p2.innerText = el.pets;
     const span1 = document.createElement("span");
     span1.setAttribute("class", "lang");
-    let lang = el.language;
+   span1.innerText = el.language;
 
-    lang.forEach((l) => {
-      console.log(l);
-      span1.innerHTML = l;
-    });
+  
+     
+      
+  
 
     let br = document.createElement("br");
     let b = document.createElement("b");

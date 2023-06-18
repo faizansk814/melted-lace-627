@@ -130,7 +130,7 @@
       <div id="navbar" class="navbar top">
         <div class="company-icon">
           <div class="icon">
-            <img src="./image_resources/LOGO.jpeg" alt="" />
+            <img  id="home" src="./image_resources/LOGO.jpeg" alt="" />
           </div>
           <div class="name">
             <h1 class="logo">
@@ -140,11 +140,11 @@
         </div>
         <nav>
           <ul>
-            <li><a href="#home">signIn</a></li>
-            <li><a href="#">Consult a vet</a></li>
-            <li><a href="./medicine.html">Order medicines</a></li>
-            <li><a href="#">Healthcare Products</a></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><a href="./Pages/Login.html">signIn</a></li>
+            <li><a href="./doctors.html">Consult </a></li>
+            <li><a href="./medicine.html">medicines</a></li>
+            <li><a href="./healthcare.html">Products</a></li>
+            
           </ul>
         </nav>
       </div>
@@ -462,18 +462,12 @@
   };
 
   // smooth scrolling
-  $("#navbar a, .btn").on("click", function (e) {
-    if (this.hash != "") {
-      e.preventDefault();
 
-      const hash = this.hash;
-
-      $("html, body").animate(
-        {
-          scrollTop: $(hash).offset().top - 120,
-        },
-        800
-      );
-    }
-  });
+  // go home
+  let home=document.getElementById("home")
+  home.addEventListener("click",(e)=>{
+    e.preventDefault()
+    location.href='./index.html'
+  })
+  
 </script>

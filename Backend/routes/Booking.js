@@ -13,9 +13,11 @@ BookingRoute.post("/check",async (req, res) => {
         //     return res.status(400).json({ error: "Invalid Time format. Please use 24 hrs clock only and use only AM and PM.Time must be between 9 AM to 8PM" })
         // }
         
-        const existingAppointment = await BookingModel.findOne({ doctor,date,time,email });
+        const existingAppointment = await BookingModel.findOne({ doctor,date,time });
+        // console.log(existingAppointment)
         if (existingAppointment) {
-            return res.status(409).json({ message: 'This time slot is already booked.' });
+            console.log(existingAppointment)
+            return res.status(409).json({ error: 'This time slot is already booked.' });
         }
         return res.status(200).json({msg:"This time slot is available"})
     } catch (error) {

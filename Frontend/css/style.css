@@ -189,9 +189,13 @@ all becomes after it made it translucent so we have
 }
 
 /* team */
+#team{
+  width: 90%;
+  margin: auto;
+}
 .team img{
-  height: 300px;
-  width: 300px;
+ /* max-height: 300px; */
+  /* max-width: auto; */
   border-radius: 50%;
 }
 
