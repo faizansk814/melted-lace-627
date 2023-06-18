@@ -30,7 +30,7 @@ main{
     justify-content: space-between;
 }
 #filter>div:nth-child(1) p:nth-child(2){
-    color: #ffffff;
+    color: #909090;
 }
 fieldset{
     border: none;
