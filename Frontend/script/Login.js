@@ -41,7 +41,7 @@ function moveSlider(index) {
   bullets.forEach((bull) => bull.classList?.remove("active"));
   bullets[index-1].classList?.add("active");
   carouselIndex+=1;
-  console.info(carouselIndex)
+  // console.info(carouselIndex)
   if(carouselIndex>3) carouselIndex = 1;
 }
 
@@ -183,20 +183,30 @@ formlogin.addEventListener("submit", async (e) => {
       body: JSON.stringify(obj),
     });
 
+
     if (res.ok) {
       let response = await res.json();
       console.log(response.isVerified);
 
       // Checking if the email is verified
-      if (response.isVerified) {
+      if(response.role=="admin"){
+        storeUserInLocalStorage(response);
+        // alert("Login Successfully");
+        window.location.href = "../Admin/Admin.dashboard.html";
+        console.log("hi")
+      }
+     else if (response.isVerified && response.role=="user") {
         // Email is verified, proceed with login
         storeUserInLocalStorage(response);
         alert("Login Successfully");
-        window.location.href = "../dashboard.html";
-      } else {
+        window.location.href = "../index.html";
+      } 
+      
+      else {
         // Email is not verified
         alert("Email verification required.");
       }
+
     } else if (res.status === 401) {
       // Wrong credentials
       alert("Wrong Credentials");
