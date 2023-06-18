@@ -1,6 +1,6 @@
 const express = require('express');
-
-
+const nodemailer=require("nodemailer")
+const { BookingModel } = require("../model/Booking")
 const Payment = express();
 
 Payment.post('/payment', async (req, res) => {

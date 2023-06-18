@@ -2,7 +2,7 @@ const express = require("express")
 const BookingRoute = express()
 const { BookingModel } = require("../model/Booking")
 const auth=require("../middleware/auth")
-BookingRoute.post("/Book",auth, async (req, res) => {
+BookingRoute.post("/check", auth,async (req, res) => {
     const { doctor, patient, date, time ,email} = req.body
     try {
         if (!validateDateFormat(date)) {
