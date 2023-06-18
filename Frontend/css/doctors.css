@@ -9,10 +9,11 @@ main{
 }
 #main{
     display: grid;
-    grid-template-areas:"g  h h h ";
+    grid-template-areas:"g h h h ";
     /* grid-template-columns: repeat(200px, 2000px); */
     justify-content: space-around;
     /* text-align: center; */
+   
    margin: auto;
 
 }
@@ -20,17 +21,24 @@ main{
 #filter{
   /* border: 2px solid blue; */
   grid-area: "g";
-  /* height: 100; */
-  background:rgb(255, 255, 255) ;
-  border-radius: 5px;
-  padding: 20px;
+  position: static;
 }
 #filter>div:nth-child(1){
     display: flex;
     justify-content: space-between;
 }
+#filter>div:nth-child(2){
+    background-attachment: fixed;
+    height:fit-content;
+    background:rgb(255, 255, 255) ;
+    border-radius: 5px;
+  padding: 20px;
+}
 #filter>div:nth-child(1) p:nth-child(2){
     color: #909090;
+}
+#filter>div:nth-child(1) input[type="search"]{
+    border-radius: 9px;
 }
 fieldset{
     border: none;

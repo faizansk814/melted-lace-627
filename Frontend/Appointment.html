@@ -169,7 +169,7 @@ label.light {
           <p>Make your appointment</p>
     
         </div>
-        <form action="#" method="post">
+        <form id="form" action="#" method="post">
           <fieldset>
             <legend><span class="number">1</span>Your details</legend>
             <label for="name">Name*:</label>
@@ -181,46 +181,15 @@ label.light {
             <label for="tel">Contact*:</label>
             <input type="tel" id="tel" placeholder="Include country code" name="user_num">
     
-            <label for="city_name">City*:</label>
-            <input type="text" id="city_name" name="city_name" placeholder="Lucknow" pattern="[a-zA-Z0-9]+">
-    
-    
+            <label for="date">Date*:</label>
+            <input type="date" id="date" value="" required></input>
+            <br>
+            <label for="time">Time*:</label>
+            <input type="time" id="time" value="" required></input>
+            <br>
           </fieldset>
     
-          <fieldset>
-            <legend><span class="number">2</span>Your pet`s details</legend>
-            <details>
-                <label for="appointment_for">Pet Type*:</label>
-                <select id="appointment_for" name="appointment_for" required>
-                  <option value="Cow/Buffalow">Cow/Buffalow</option>
-                  <option value="Dog">Dog</option>
-                  <option value="cat">cat</option>
-                  <option value="Bird">Bird</option>
-                  <option value="Tirtle">Tirtle</option>
-                  <option value="Rabit">Rabit</option>
-                  <option value="couple_date">Date</option>
-                </select>
-                <label for="pet-name">Pet Name*:</label>
-                <input type="text" id="pet-name" name="pet_name" placeholder="Tomy " required pattern="[a-zA-Z0-9]+">
-                <label for="gender">Pet Gender*:</label>
-                <select id="gender" name="gender" required>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  
-                </select>
-                <label for="appointment_description">Sympton Description:</label>
-                <textarea id="appointment_description" name="appointment_description" placeholder="your pets problems"></textarea>
-                <label for="date">Date*:</label>
-                <input type="date" name="date" value="" required></input>
-                <br>
-                <label for="time">Time*:</label>
-                <input type="time" name="time" value="" required></input>
-                <br>
-                
-                 </details>
-         
-          </fieldset>
-          <button type="submit">Book Appointment</button>
+          <button  type="submit">Book Appointment</button>
         </form>
       </div>
 </main>   
@@ -266,22 +235,37 @@ label.light {
     };
 
     // smooth scrolling
-    $('#navbar a, .btn').on('click', function(e){
-      if (this.hash !=''){
-        e.preventDefault();
+    // $('#navbar a, .btn').on('click', function(e){
+    //   if (this.hash !=''){
+    //     e.preventDefault();
 
-        const hash = this.hash;
+    //     const hash = this.hash;
 
-        $('html, body').animate(
-          {
-            scrollTop: $(hash).offset().top - 120,
-          },
-          800
-        );
-      }
-    });
+    //     $('html, body').animate(
+    //       {
+    //         scrollTop: $(hash).offset().top - 120,
+    //       },
+    //       800
+    //     );
+    //   }
+    // });
 
 
+let form = document.querySelector('#form');  
+let name=form.name.value;
+let mail=form.mail.value;
+let contact = form.tel.value;
+let date= form.date.value;
+let time=form.time.value;
+let obj={
+  name,
+  mail,
+  contact,
+  date,
+  time,
+
+}
+console.log(obj)
 
    
      
