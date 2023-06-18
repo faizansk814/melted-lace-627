@@ -4,6 +4,7 @@ const auth = require('../middleware/auth')
 const DoctorModel = require('../model/doctor.model')
 const { BookingModel } = require('../model/Booking')
 const UserModel = require('../model/user.model')
+const nodemailer=require("nodemailer")
 
 
 const doctorroute = express.Router()
@@ -23,6 +24,34 @@ doctorroute.post("/doctorpost", async (req, res) => {
         const { image, name, email,password,phoneNo,language,expreince } = req.body
         const newDoctor = new DoctorModel({ image, name, email,password,phoneNo,language,expreince })
         await newDoctor.save()
+        const transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            secure: false,
+            requireTLS: true,
+            auth: {
+              user: "faizansk814@gmail.com",
+              pass: "fnvbvtfqwgtcelib",
+            },
+          });
+      
+          const mailOptions = {
+            from: "faizansk814@gmail.com",
+            to: email,
+            subject: "Login Credintials",
+            html: `<div>
+            <p>Hi ${name}, Your Login Credintials are</p>
+            <p>Email:- ${email}</p>
+            <p>Password:-${password}</p>
+            </div>`,
+          };
+      
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              console.error("Error sending email:", error);
+            } else {
+              console.log("Email sent:", info.response);
+            }
+          });
         return res.status(200).send({ msg: "Doctor added succesfully",newDoctor })
     } catch (error) {
         return res.status(401).send({ msg: error.message })
