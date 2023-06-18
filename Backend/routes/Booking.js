@@ -17,9 +17,7 @@ BookingRoute.post("/Book",auth, async (req, res) => {
         if (existingAppointment) {
             return res.status(409).json({ message: 'This time slot is already booked.' });
         }
-        const appointment = new BookingModel({ doctor, patient, date, time,email });
-        await appointment.save();
-        return res.status(200).json({ msg: `your appointment is Schedule on  ${date} with ${doctor}` })
+        return res.status(200).json({msg:"This time slot is available"})
     } catch (error) {
         console.log(error);
         return res.status(500).json(error)
