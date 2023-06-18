@@ -148,7 +148,20 @@ userrouter.delete("/delete/:id",async (req,res)=>{
     return res.status(200).send({msg:"User Deleted"})
 })
 
+// To send verification link again
 
+userrouter.post("/sendlink", async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await UserModel.findOne({ email: email });
+    if (user) {
+      sendVerificationMail(user.name, user.email, user._id);
+      res.status(200).send({ msg: "Verification mail sent to your mail" });
+    } else {
+      res.status(400).send({ msg: "This mail don't exist" });
+    }
+  } catch (error) {}
+});
 
 
 

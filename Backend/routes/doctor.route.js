@@ -19,7 +19,7 @@ doctorroute.get("/doctorget", async (req, res) => {
     }
 })
 
-doctorroute.post("/doctorpost", async (req, res) => {
+doctorroute.post("/doctorpost",auth,role(["admin"]), async (req, res) => {
     try {
         const { image, name, email,password,phoneNo,language,expreince } = req.body
         const newDoctor = new DoctorModel({ image, name, email,password,phoneNo,language,expreince })

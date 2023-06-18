@@ -470,7 +470,7 @@ async function deleteUser(id) {
 //Delete appointment
 async function deleteClass(id) {
     try {
-        let res = await fetch(baseURL +`deleteappointment/${id}`, {
+        let res = await fetch( +`deleteappointment/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json"
