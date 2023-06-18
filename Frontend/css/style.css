@@ -3,134 +3,139 @@
 /* BASE STYLE */
 
 
-*{
+* {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-body{
+body {
   font-family: 'Open Sans', sans-serif;
-  background: #fff;
+  background: #bdbdbd;
   color: #333;
   line-height: 1.6;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-a{
+a {
   color: #333;
   text-decoration: none;
 }
 
-h1,h2,h3 {
+/* h1,
+h2,
+h3 {
   font-weight: 300;
   line-height: 1.2;
-  padding:10px;
+  padding: 10px;
+} */
+
+p {
+  margin: 10px 0;
 }
 
-p{
-  margin:10px 0;
-}
-
-img{
-  width:100%;
+img {
+  width: 100%;
 }
 
 /* navbar */
 
-.navbar{
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #333;
   color: antiquewhite;
   opacity: 0.8;
-  width:100%;
+  width: 100%;
   height: 90px;
   position: fixed;
   top: 0;
-  padding:0 30px;
+  padding: 0 30px;
   transition: 0.5s;
 }
 
-.navbar.top{
+.navbar.top {
   background: transparent;
 }
 
-.navbar .company-icon{
+.navbar .company-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-.navbar .company-icon .icon{
+
+.navbar .company-icon .icon {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width:50%;
-  height:100%;
+  width: 50%;
+  height: 100%;
 }
-.company-icon img{
-  width:4.5rem;
+
+.company-icon img {
+  width: 4.5rem;
   height: 4.5rem;
   background-color: #f5f5f5;
   object-fit: center center/cover;
   border-radius: 25%;
   padding: 0;
-  margin:0;
+  margin: 0;
 }
 
-.navbar a{
-  color:#fff;
+.navbar a {
+  color: #fff;
 }
 
-.navbar ul{
-  display:flex;
+.navbar ul {
+  display: flex;
   justify-content: space-around;
 }
 
-.navbar a{
+.navbar a {
   margin-left: 5px;
-  padding:10px 20px;
+  padding: 10px 20px;
   /* margin: 0 5px; */
 }
 
-.navbar a:hover{
+.navbar a:hover {
   /* background-color:#555; */
-  border-bottom: #28a745 dotted 2px ;
+  border-bottom: #28a745 dotted 2px;
 }
 
-.navbar .logo{
+.navbar .logo {
   font-weight: 600;
 }
 
-.hero{
+.hero {
   background: url('../image_resources/home/dog_showcase.jpg') no-repeat center center/cover;
   height: 100vh;
-  position:relative;
-  color:#090000;
+  position: relative;
+  color: #090000;
 }
 
-.hero .content{
+.hero .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   height: 100%;
-  padding:0 20px;
+  padding: 0 20px;
+
 }
 
-.hero .content h1{
+.hero .content h1 {
   font-size: 55px;
   font-weight: 500;
 }
 
-.hero .content p{
+.hero .content p {
   font-size: 23px;
   /* setting max-width of p so that it doesnt go out */
   max-width: 600px;
@@ -138,122 +143,122 @@ img{
   margin: 20px 0 30px;
 }
 
-.hero::before{
+.hero::before {
   content: '';
-  position:absolute;
-  top:0;
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(0,0,0,0.5);
+  background: rgb(0, 0, 0, 0.5);
 }
 
 /* because we used before the .hero that made the 
 background translucent black our .hero texts and 
 all becomes after it made it translucent so we have
  to bring that forward so we use z-index */
-.hero *{
-  z-index:10;  
+.hero{
+  z-index: 100;
 }
-.hero.blog{
+
+.hero.blog {
   background: url('../image_resources/home/blog_w1.jpg') no-repeat center center/cover;
-  height:70vh;
+  height: 70vh;
 }
 
 
-.hero.blog .content h1{
+.hero.blog .content h1 {
   font-size: 55px;
   font-weight: 700;
 }
+
 /* Icons */
-.icons{
-  padding:30px;
+.icons {
+  padding: 30px;
 }
 
-.icons h3{
+.icons h3 {
   font-weight: bold;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 
-.icons i{
+.icons i {
   background-color: #28a745;
-  color:#fff;
-  padding:1rem;
+  color: #fff;
+  padding: 1rem;
   border-radius: 50px;
   margin-bottom: 15px;
 }
 
-.cases img:hover{
-  transition:0.2s;
+.cases img:hover {
+  transition: 0.2s;
   opacity: 0.7;
 }
 
 /* team */
-#team{
-  width: 90%;
-  margin: auto;
-}
-.team img{
- /* max-height: 300px; */
-  /* max-width: auto; */
+.team img {
+
   border-radius: 50%;
 }
 
 /* Contact */
-.callback-form{
-  width:100%;
-  padding:20px 0;
+.callback-form {
+  width: 100%;
+  padding: 20px 0;
 }
 
-.callback-form label{
+.callback-form label {
   display: block;
   margin-bottom: 15px;
 }
 
-.callback-form .form-control{
+.callback-form .form-control {
   margin-bottom: 15px;
 }
 
-.callback-form input{
-  width:100%;
-  padding:4px;
-  height:40px;
-  border:#f5f5f5 1px solid;
+.callback-form input {
+  width: 100%;
+  padding: 4px;
+  height: 40px;
+  border: #f5f5f5 1px solid;
 }
 
-.callback-form input:focus{
+.callback-form input:focus {
   outline-color: #28a745;
 }
-.callback-form .btn{
-  padding:12px 0;
+
+.callback-form .btn {
+  padding: 12px 0;
   margin-top: 20px;
 }
 
 /* Post */
-.post{
+.post {
   padding: 50px 30px;
 }
 
-.post h2{
-  font-size:40px;
+.post h2 {
+  font-size: 40px;
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: #ccc solid 1px;
 }
 
-.post .meta{
-  margin-bottom:30px;
+.post .meta {
+  margin-bottom: 30px;
 }
-.post img{
-  width:300px;
+
+.post img {
+  width: 300px;
   border-radius: 50%;
-  display:block;
+  display: block;
   margin: 0 auto 30px;
 
 }
+
 /* Footer */
-.footer{
-  display:flex;
+.footer {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -261,50 +266,111 @@ all becomes after it made it translucent so we have
   height: 200px;
 }
 
-.footer a{
+.footer a {
   color: #f5f5f5;
 }
 
-.footer a:hover{
+.footer a:hover {
   transition: 0.2s;
   opacity: 0.9;
   color: #28a745;
 }
 
-.footer .social>*{
+.footer .social>* {
   margin-right: 30px;
 }
 
-.footer p{
+.footer p {
   margin-top: 20px;
 }
 
 
-@media(max-width:768px){
-  .navbar .company-icon img{
+@media(max-width:768px) {
+  .navbar .company-icon img {
     height: 3rem;
-    width:2.5rem;
+    width: 2.5rem;
   }
-  .navbar{
+
+  .navbar {
     flex-direction: column;
     height: 120px;
     padding: 20px;
   }
-  .navbar a{
+
+  .navbar a {
     padding: 10px 10px;
-    margin:0 3px;
+    margin: 0 3px;
     /* margin-bottom: 3px; */
   }
-  .flex-items{
+
+  .flex-items {
     flex-direction: column;
   }
+
   .flex-columns .column,
-  .flex-grid .column{
-    flex:100%;
+  .flex-grid .column {
+    flex: 100%;
     max-width: 100%;
   }
-  .team-img{
-    width:70%;
+
+  .team-img {
+    width: 70%;
   }
 
-} 
+}
+
+@media screen and (max-width:420px) {
+  /* .navbar .company-icon img {
+    height: 3rem;
+    width: 2.5rem;
+  } */
+
+  .navbar {
+    flex-direction: column;
+    height: 190px;
+    padding: 10px;
+  }
+
+  .navbar a {
+    padding: 10px 10px;
+    margin: 0 3px;
+    /* margin-bottom: 3px; */
+  }
+
+  .flex-items {
+    flex-direction: column;
+  }
+
+  .flex-columns .column,
+  .flex-grid .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+
+  .team-img {
+    width: 70%;
+  }
+
+  #navbar>nav>ul {
+    display: grid;
+    grid-template-areas: 'h i' 'j k';
+    
+  }
+  #navbar>nav>ul>li:nth-child(1) {
+ 
+    grid-area: "h";
+  }
+  #navbar>nav>ul>li:nth-child(2) {
+    grid-area: "i";
+  
+  }
+  #navbar>nav>ul>li:nth-child(3) {
+    grid-area: "j";
+  
+    
+  }
+  #navbar>nav>ul>li:nth-child(4) {
+    grid-area: "k";
+
+  }
+}

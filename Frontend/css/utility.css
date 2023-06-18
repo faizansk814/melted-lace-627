@@ -153,24 +153,3 @@
   padding: 0 4px;
 }
 
-/* media querries */
-@media(max-width:768px){
-  .navbar .company-icon img{
-    height: 3rem;
-    width:2.5rem;
-  }
-  .navbar{
-    flex-direction: column;
-    height: 150px;
-    padding: 20 px;
-  }
-  .navbar ul{
-    align-items: center;
-    justify-content: space-around;
-  }
-  .navbar a{
-    padding: 10px 10px;
-    margin:0 3px;
-    margin-bottom: 3px;
-  }
-}
