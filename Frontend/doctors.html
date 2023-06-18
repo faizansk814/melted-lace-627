@@ -1,140 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/ec8478f83d.js" crossorigin="anonymous"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-  <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/lightbox.min.css">
-  <link rel="stylesheet" href="./css/utility.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="icon" href="./image_resources/LOGO.jpeg" />
-  <link rel="stylesheet" href="./css/doctors.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/ec8478f83d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/lightbox.min.css" />
+    <link rel="stylesheet" href="./css/utility.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./image_resources/LOGO.jpeg" />
+    <link rel="stylesheet" href="./css/doctors.css" />
     <title>PETCARE</title>
     <style>
-  .hero {
+      .hero {
         background: none !important;
-        height: 90px !important;
+        height: 0px !important;
         position: relative;
         color: #090000;
       }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="hero">
-        <div id="navbar" class="navbar top">
-          <div class="company-icon">
-            <div class="icon">
-              <img src="./image_resources/LOGO.jpeg" alt="">
-            </div>
-            <div class="name">
-              <h1 class="logo">
-                <!-- <span>PETCARE</span> -->
-              </h1>
-            </div>
+      <div id="navbar" class="navbar top">
+        <div class="company-icon">
+          <div class="icon">
+            <img src="./image_resources/LOGO.jpeg" alt="" />
           </div>
-          <nav>
-            <ul>
-              <li><a href="#home">signIn</a></li>
-              <li><a href="#">Consult a vet</a></li>
-              <li><a href="./medicine.html">Order medicines</a></li>
-              <li><a href="#">Healthcare Products</a></li>
-              <li><a href="#blog">Blog</a></li>
-            </ul>
-          </nav>
+          <div class="name">
+            <h1 class="logo">
+              <!-- <span>PETCARE</span> -->
+            </h1>
+          </div>
         </div>
-      </header>
-<!-- main -->
-<main>
- <div id="main">
-<div id="filter">
-    <!-- filter -->
-kjhgnxcvbn
-</div>
-<div id="cards">
-    <div class="card">
-        <div class="img-info">
-            <div id="dctrimg">
-                <img src="./image_resources/team/person1.jpg" alt="">
-            </div>
-            <div id="dctrinfo">
-                <h4>Rajneesh <span>M.V.sc.</span></h4>
-                <p>eterinarian [9 Years Experience]</p>
-                <p>Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry</p>
+        <nav>
+          <ul>
+            <li><a href="#home">signIn</a></li>
+            <li><a href="#">Consult a vet</a></li>
+            <li><a href="./medicine.html">Order medicines</a></li>
+            <li><a href="./healthcare.html">Healthcare Products</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- main -->
+    <main>
+      <div id="main">
+        <div id="filter">
+          <!-- filter -->
+          <div>
+            <p>Filter</p>
+            <p>Reset All</p>
+          </div>
+          <div>
+            <fieldset>
+              <legend>Pet Type</legend>
+              <input type="search" placeholder="Type Here" id="search" /> <br />
 
-                <span class="lang">ENG</span>
-                <span class="lang">HINDI</span>
-                <span class="lang">PUNJABI</span>
-                <br>
-                <b>₹500 Consultation Fee</b>
-            </div>
+              <div>
+                <input type="radio" id="cat" name="drone" value="cat" />
+                <label for="cat">Cat</label>
+              </div>
+
+              <div>
+                <input type="radio" id="dog" name="drone" value="Dog" />
+                <label for="dog">Dog</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="cow/buffalow"
+                  name="drone"
+                  value="cow/buffalow"
+                />
+                <label for="cow/buffalow">Cow/Buffalow</label>
+              </div>
+              <div>
+                <input type="radio" id="bird" name="drone" value="bird" />
+                <label for="bird">bird</label>
+              </div>
+
+              <div>
+                <input type="radio" id="turtle" name="drone" value="turtle" />
+                <label for="turtle">turtle</label>
+              </div>
+            </fieldset>
+            <!-- language -->
+            <fieldset>
+              <legend>language</legend>
+              <div>
+                <input type="radio" id="hindi" name="lang" value="hindi" />
+                <label for="hindi">hindi</label>
+              </div>
+
+              <div>
+                <input type="radio" id="English" name="lang" value="English" />
+                <label for="English">English</label>
+              </div>
+              <div>
+                <input type="radio" id="punjabi" name="lang" value="punjabi" />
+                <label for="punjabi">punjabi</label>
+              </div>
+              <div>
+                <input type="radio" id="odia" name="lang" value="odia" />
+                <label for="odia">odia</label>
+              </div>
+
+              <div>
+                <input type="radio" id="Bihari" name="lang" value="Bihari" />
+                <label for="Bihari">Bihari</label>
+              </div>
+            </fieldset>
+          </div>
         </div>
-        <div class="vc-app">
-            <div class="vc">Instant Consult</div>
-            <div class="BOOK">Book Appointment</div>
+        <div id="cards">
+          <!--Append card using js js -->
         </div>
-    </div>
-    
+      </div>
+    </main>
 
-</div>
- </div>
-
-</main>
-
-<!-- footer -->
-      <footer class="footer bg-dark">
-        <div class="social">
-          <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
-          <a href="#"><i class="fa-brands fa-youtube fa-2x"></i></a>
-        </div>
-        <p>Copyright &copy; 2023-PETCARE</p>
-      </footer>
-</body>
+    <!-- footer -->
+    <footer class="footer bg-dark">
+      <div class="social">
+        <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube fa-2x"></i></a>
+      </div>
+      <p>Copyright &copy; 2023-PETCARE</p>
+    </footer>
+  </body>
 </html>
 <!-- Adding javascript -->
 
 <script
-src="https://code.jquery.com/jquery-3.6.1.min.js"
-integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-crossorigin="anonymous"></script>
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"
+></script>
 <script src="./js/lightbox.min.js"></script>
-  <script>
-    const navbar = document.getElementById('navbar');
-    let scrolled = false;
+<script>
+  //
+  function togglePopup() {
+    document.getElementById("popup-1").classList.toggle("active");
+  }
+  //
+  const navbar = document.getElementById("navbar");
+  let scrolled = false;
 
-    window.onscroll = function(){
-      if(window.pageYOffset > 100){
-        navbar.classList.remove('top');
+  window.onscroll = function () {
+    if (window.pageYOffset > 100) {
+      navbar.classList.remove("top");
 
-        if(!scrolled){
-          navbar.style.transform = 'translateY(-90px)';
-        }
-        setTimeout(function(){
-          navbar.style.transform = 'translateY(0)';
-          scrolled = true;
-        },200);
-      } 
-      else{
-        navbar.classList.add('top');
-        scrolled = false;
+      if (!scrolled) {
+        navbar.style.transform = "translateY(-90px)";
       }
-    };
+      setTimeout(function () {
+        navbar.style.transform = "translateY(0)";
+        scrolled = true;
+      }, 200);
+    } else {
+      navbar.classList.add("top");
+      scrolled = false;
+    }
+  };
 
-    // smooth scrolling
-    $('#navbar a, .btn').on('click', function(e){
-      if (this.hash !=''){
-        e.preventDefault();
+  // smooth scrolling
+  $("#navbar a, .btn").on("click", function (e) {
+    if (this.hash != "") {
+      e.preventDefault();
 
-        const hash = this.hash;
+      const hash = this.hash;
 
-        $('html, body').animate(
-          {
-            scrollTop: $(hash).offset().top - 120,
-          },
-          800
-        );
-      }
+      $("html, body").animate(
+        {
+          scrollTop: $(hash).offset().top - 120,
+        },
+        800
+      );
+    }
+  });
+
+  function appendi(el) {
+    let form = document.createElement("form");
+    let label = document.createElement("label");
+    label.setAttribute("for", "meeting-time");
+
+    let input = document.createElement("input");
+    input.setAttribute("type", "datetime-local");
+    input.setAttribute("id", "meeting-time");
+    input.setAttribute("name", "meeting-time");
+    input.setAttribute("value", "2023-06-12T19:30");
+    input.setAttribute("min", "2023-06-07T00:00");
+
+    let submit = document.createElement("input");
+    submit.setAttribute("type", "submit");
+    form.append(label, input, submit);
+    console.log(el.currentTarget.append(form));
+    let x = el.currentTarget.append(form);
+    return x;
+  }
+</script>
+
+<script>
+  let data = [
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "Rajneesh",
+      qualification: "M.v.sc.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language: ["english", "hindi"],
+      fees: 900,
+    },
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "Rajneesh",
+      qualification: "M.v.sc.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language: ["english", "hindi"],
+      fees: 900,
+    },
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "Rajneesh",
+      qualification: "M.v.sc.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language: ["english", "hindi"],
+      fees: 900,
+    },
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "Rajneesh",
+      qualification: "M.v.sc.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language: ["english", "hindi"],
+      fees: 900,
+    },
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "Rajneesh",
+      qualification: "M.v.sc.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language: ["english", "hindi"],
+      fees: 900,
+    },
+    {
+      img: "./image_resources/team/person1.jpg",
+      name: "Rajneesh",
+      qualification: "M.v.sc.",
+      experience: "veterinarian [9 Years Experience]",
+      pets: "Avian Pets,Companion Pets,Exotic Pets,Farm Animals,Poultry",
+      language: ["english", "hindi"],
+      fees: 900,
+    },
+  ];
+
+  data.forEach((el) => {
+    UI(el);
+  });
+  function UI(el) {
+    let cards = document.querySelector("#cards");
+    let div = document.createElement("div");
+    div.setAttribute("class", "card");
+
+    let img_info = document.createElement("div");
+    img_info.setAttribute("class", "img-info");
+    let dctrimg = document.createElement("div");
+    dctrimg.setAttribute("class", "dctrimg");
+    let img = document.createElement("img");
+    img.setAttribute("src", el.img);
+    dctrimg.append(img);
+    img_info.append(dctrimg);
+
+    let dctrinfo = document.createElement("div");
+    dctrinfo.setAttribute("class", "dctrinfo");
+    let h4 = document.createElement("h4");
+    h4.innerHTML = el.name;
+    let span = document.createElement("span");
+    span.innerText = el.qualification;
+    h4.append(span);
+    let p1 = document.createElement("p");
+    p1.innerText = el.experience;
+
+    let p2 = document.createElement("p");
+    p2.innerText = el.pets;
+    const span1 = document.createElement("span");
+    span1.setAttribute("class", "lang");
+    let lang = el.language;
+
+    lang.forEach((l) => {
+      console.log(l);
+      span1.innerHTML = l;
     });
-  </script>
+
+    let br = document.createElement("br");
+    let b = document.createElement("b");
+    b.innerText = `₹${el.fees} Consultation Fee`;
+    dctrinfo.append(h4, p1, p2, span1, br, b);
+    img_info.append(dctrimg, dctrinfo);
+
+    let vc_app = document.createElement("div");
+    vc_app.setAttribute("class", "vc-app");
+    let vc = document.createElement("div");
+    vc.setAttribute("class", "vc");
+    vc.innerHTML = `<i class="fa-solid fa-video"></i> Instant Consult`;
+    let Book = document.createElement("div");
+    Book.setAttribute("class", "BOOK");
+    Book.innerHTML = `<i class="fa-regular fa-calendar-days" style="color: #0066ff;"></i>Book Appointment`;
+    Book.addEventListener("click", () => {
+      localStorage.setItem("doctor", JSON.stringify(el));
+      location.href = "./Appointment.html";
+    });
+    vc_app.append(vc, Book);
+
+    div.append(img_info, vc_app);
+    cards.append(div);
+  }
+</script>
