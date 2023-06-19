@@ -151,10 +151,11 @@
 
     }
     console.log(obj)
-    fetch("https://gentle-sunglasses-wasp.cyclic.app/appointment/check", {
+    fetch("https://gentle-sunglasses-wasp.cyclic.app/appointment/Book", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorisation":`${localStorage.getItem("token")}`
       },
       body: JSON.stringify(obj)
     })
