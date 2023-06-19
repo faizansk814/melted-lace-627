@@ -40,14 +40,15 @@ frontend deployed link:https://648ff11444734c249a4f1423--singular-dieffenbachia-
  6. Open http://localhost:8080 to backend run in the browser 
 
  ## Tools and Libraries 
- - [Express] - Node 
-- [JWT] - Token Genration &
-- [React-testing-Library] - Integration testing
-- [AntDesign] - CSS styling classes
-- [nodeJs] - Server environment
-- [ExpressJs] - Routing, middleware
+ - [ExpressJs] - Node 
 - [JWT] - JSON Web Token for authorization and authentication
-- [Swagger] = API Developer tool
-- [Winston] - App logging 
-- [redis] - Response optimization 
+- [nodemailer] - Sending mail
+- [bcrypt] - Hashing Password
+- [nodeJs] - Server environment
+- [nodemon] = Run the Server
+- [randomstring] -  Random strings
+- [qr-image] - QR code generation
+- [mongoose] - : MongoDB ODM
+- [@sendgrid/mail] - Email service integration
+
 
