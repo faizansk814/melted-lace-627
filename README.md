@@ -30,7 +30,7 @@ frontend deployed link:https://648ff11444734c249a4f1423--singular-dieffenbachia-
    ```
  4. Run Notification only
    ```sh
-   start:notification": "nodemon notification.js
+  npm run start:notification
    ```
  5.  Run api and notification concurrently
    ```sh
