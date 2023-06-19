@@ -39,14 +39,14 @@ function moveSlider(index) {
   textSlider.style.transform = `translateY(${-(index - 1) * 2.2}rem)`;
 
   bullets.forEach((bull) => bull.classList?.remove("active"));
-  bullets[index - 1].classList?.add("active");
-  carouselIndex += 1;
+  bullets[index-1].classList?.add("active");
+  carouselIndex+=1;
   // console.info(carouselIndex)
-  if (carouselIndex > 3) carouselIndex = 1;
+  if(carouselIndex>3) carouselIndex = 1;
 }
 
 bullets.forEach((bullet) => {
-  bullet.addEventListener("click", () => {
+  bullet.addEventListener("click", ()=>{
     moveSlider(bullet.dataset.value)
   });
 });
@@ -139,7 +139,7 @@ formEl.addEventListener("submit", async (e) => {
         password: passwordInput.value,
       };
 
-      const response = await fetch(`https://gentle-sunglasses-wasp.cyclic.app/user/register`, {
+      const response = await fetch(`http://localhost:8080/user/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -148,12 +148,12 @@ formEl.addEventListener("submit", async (e) => {
       });
 
 
-      if (response.status === 401) {
+      if(response.status === 401){
         alert("Email already registered")
       }
       const data = await response.json();
-      if (response.status === 200) {
-        alert("Registration Successful!")
+      if(response.status === 200){
+        alert("Registration Successful! verification link send to your email.")
       }
       console.log(data);
     } catch (error) {
@@ -186,21 +186,26 @@ formlogin.addEventListener("submit", async (e) => {
 
     if (res.ok) {
       let response = await res.json();
+      console.log(response.isVerified);
 
       // Checking if the email is verified
-      if (response.role == "admin") {
+      if(response.role=="admin"){
         storeUserInLocalStorage(response);
         // alert("Login Successfully");
         window.location.href = "../Admin/Admin.dashboard.html";
         console.log("hi")
       }
-      else if ( response.user == "user") {
+     else if (response.isVerified && response.role=="user") {
         // Email is verified, proceed with login
         storeUserInLocalStorage(response);
         alert("Login Successfully");
         window.location.href = "../index.html";
+      } 
+      
+      else {
+        // Email is not verified
+        alert("Email verification required.");
       }
-
 
     } else if (res.status === 401) {
       // Wrong credentials

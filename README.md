@@ -36,6 +36,18 @@ frontend deployed link:https://648ff11444734c249a4f1423--singular-dieffenbachia-
    ```sh
    npm run start:both
    ```
-4. Open http://localhost:3000 to view it in the browser 
-5. Open http://localhost:8080 to backend run in the browser (npm run dev)
+ 
+ 6. Open http://localhost:8080 to backend run in the browser 
+
+ ## Tools and Libraries 
+ - [Express] - Node 
+- [JWT] - Token Genration &
+- [React-testing-Library] - Integration testing
+- [AntDesign] - CSS styling classes
+- [nodeJs] - Server environment
+- [ExpressJs] - Routing, middleware
+- [JWT] - JSON Web Token for authorization and authentication
+- [Swagger] = API Developer tool
+- [Winston] - App logging 
+- [redis] - Response optimization 
 
