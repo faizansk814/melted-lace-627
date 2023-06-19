@@ -1,4 +1,5 @@
 # melted-lace-627
+![Alt Text](./Frontend/Images/petcare.png)
 ## About The Project
 
 
@@ -30,7 +31,7 @@ frontend deployed link:https://648ff11444734c249a4f1423--singular-dieffenbachia-
    ```
  4. Run Notification only
    ```sh
-  npm run start:notification
+   start:notification": "nodemon notification.js
    ```
  5.  Run api and notification concurrently
    ```sh
@@ -50,5 +51,17 @@ frontend deployed link:https://648ff11444734c249a4f1423--singular-dieffenbachia-
 - [qr-image] - QR code generation
 - [mongoose] - : MongoDB ODM
 - [@sendgrid/mail] - Email service integration
+
+
+##Images
+![Alt Text](./Frontend/Images/Screenshot%20(1440).png)
+![Alt Text](./Frontend/Images/Screenshot%20(1441).png)
+![Alt Text](./Frontend/Images/Screenshot%20(1442).png)
+![Alt Text](./Frontend/Images/Screenshot%20(1443).png)
+![Alt Text](./Frontend/Images/Screenshot%20(1444).png)
+![Alt Text](./Frontend/Images/Screenshot%20(1445).png)
+
+
+
 
 
