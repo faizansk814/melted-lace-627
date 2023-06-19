@@ -114,7 +114,7 @@ function validatePassword() {
 
 // 
 const registerBtn = document.getElementById("registerBtn");
-let BASEURL = "https://gentle-sunglasses-wasp.cyclic.app"
+let BASEURL = "http://localhost:8080"
 formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
 
