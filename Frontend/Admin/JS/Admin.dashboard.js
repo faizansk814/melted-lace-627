@@ -1,5 +1,5 @@
 // import baseURL from "./baseURL.js";
-const baseURL = `https://gentle-sunglasses-wasp.cyclic.app/doctor/`;
+const baseURL = `http://localhost:8080/doctor`;
 
 let depObj = {
     1: "Online",
@@ -218,7 +218,7 @@ function renderRecentPatients(arr) {
 //Get Recent 
 async function recentApps() {
     try {
-let res = await fetch("https://gentle-sunglasses-wasp.cyclic.app/appointment/allappoinment");
+let res = await fetch("http://localhost:8080/appointment/allappoinment");
         if (res.ok) {
             let data = await res.json();
             // console.log(data.classes[0].title);
@@ -451,7 +451,7 @@ async function deleteDoc(id) {
 
 async function deleteUser(id) {
     try {
-        let res = await fetch(`https://gentle-sunglasses-wasp.cyclic.app/user/delete/${id}`, {
+        let res = await fetch(`http://localhost:8080/user/delete/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json"
@@ -470,7 +470,7 @@ async function deleteUser(id) {
 //Delete appointment
 async function deleteClass(id) {
     try {
-        let res = await fetch( +`deleteappointment/${id}`, {
+        let res = await fetch(baseURL+`deleteappointment/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json"
