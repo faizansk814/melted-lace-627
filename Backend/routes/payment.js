@@ -34,7 +34,7 @@ Payment.post('/payment', async (req, res) => {
             requireTLS: true,
             auth: {
               user: "faizansk814@gmail.com",
-              pass: "fnvbvtfqwgtcelib",
+              pass: "mxnwujkvejocmhrr",
             },
           });
       
