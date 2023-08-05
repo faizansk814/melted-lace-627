@@ -22,7 +22,9 @@ app.use("/doctor", doctorroute)
 app.use("/appointment", BookingRoute)
 app.use("/petcare", Payment)
 
-
+app.get("/server",(req,res)=>{
+    res.status(200).send({msg:"server start"})
+})
 
 
 app.listen(port, () => {
