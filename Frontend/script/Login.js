@@ -39,14 +39,14 @@ function moveSlider(index) {
   textSlider.style.transform = `translateY(${-(index - 1) * 2.2}rem)`;
 
   bullets.forEach((bull) => bull.classList?.remove("active"));
-  bullets[index-1].classList?.add("active");
-  carouselIndex+=1;
+  bullets[index - 1].classList?.add("active");
+  carouselIndex += 1;
   // console.info(carouselIndex)
-  if(carouselIndex>3) carouselIndex = 1;
+  if (carouselIndex > 3) carouselIndex = 1;
 }
 
 bullets.forEach((bullet) => {
-  bullet.addEventListener("click", ()=>{
+  bullet.addEventListener("click", () => {
     moveSlider(bullet.dataset.value)
   });
 });
@@ -139,23 +139,34 @@ formEl.addEventListener("submit", async (e) => {
         password: passwordInput.value,
       };
 
-      const response = await fetch(`http://localhost:8080/user/register`, {
+      fetch(`http://localhost:8080/user/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userObj),
-      });
-
-
-      if(response.status === 401){
-        alert("Email already registered")
-      }
-      const data = await response.json();
-      if(response.status === 200){
-        alert("Registration Successful! verification link send to your email.")
-      }
-      console.log(data);
+      })
+        .then((res) => {
+          return res.json()
+        })
+        .then((data) => {
+          if (data.msg == "Registration successful") {
+            Swal.fire(
+              'Good job!',
+              data.msg,
+              'success'
+            )
+          } else {
+            Swal.fire(
+              'OOps!',
+              data.msg,
+              'error'
+            )
+          }
+        })
+        .catch((err) => {
+          alert(err)
+        })
     } catch (error) {
       console.log(error);
     }
@@ -184,51 +195,41 @@ formlogin.addEventListener("submit", async (e) => {
     });
 
 
-    if (res.ok) {
-      let response = await res.json();
-      console.log(response.isVerified);
+    let response = await res.json();
 
-      // Checking if the email is verified
-      if(response.role=="admin"){
-        storeUserInLocalStorage(response);
-        // alert("Login Successfully");
-        window.location.href = "../Admin/Admin.dashboard.html";
-        console.log("hi")
-      }
-     else if (response.isVerified && response.role=="user") {
-        // Email is verified, proceed with login
-        storeUserInLocalStorage(response);
-        alert("Login Successfully");
+    // Checking if the email is verified
+    if (response.role == "admin") {
+      storeUserInLocalStorage(response);
+      // alert("Login Successfully");
+      window.location.href = "../Admin/Admin.dashboard.html";
+      console.log("hi")
+    } else if (response.role == "user") {
+      // Email is verified, proceed with login
+      storeUserInLocalStorage(response);
+      Swal.fire(
+        'Good job!',
+        data.msg,
+        'success'
+      )
+      setTimeout(() => {
         window.location.href = "../index.html";
-      } 
-      
-      else {
-        // Email is not verified
-        alert("Email verification required.");
-      }
-
-    } else if (res.status === 401) {
-      // Wrong credentials
-      alert("Wrong Credentials");
+      }, 2000);
     } else {
-      alert("Login request failed");
+      Swal.fire(
+        'OOps!',
+        data.msg,
+        'error'
+      )
     }
   } catch (error) {
-    alert("Something went wrong");
+    Swal.fire(
+      'OOps!',
+      data.msg,
+      'error'
+    )
   }
 });
 
-async function verifyEmail(userId) {
-  try {
-    let verifyRes = await fetch(`${BASEURL}/verify?id=${userId}`, {
-      method: "GET",
-    });
-    return verifyRes;
-  } catch (error) {
-    console.log(error);
-    return false;
-  }
-}
 
 function storeUserInLocalStorage(user) {
   localStorage.setItem("token", user.token);
