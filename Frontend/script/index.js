@@ -1,4 +1,16 @@
-
+ServerStart()
+function ServerStart(){
+  fetch("https://petcare-lal5.onrender.com/server")
+  .then((res)=>{
+    return res.json()
+  })
+  .then((data)=>{
+    console.log(data)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+}
 $(document).ready(function () {
     $('.slider2').slick({
       autoplay: false,
