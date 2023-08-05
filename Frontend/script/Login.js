@@ -114,7 +114,7 @@ function validatePassword() {
 
 // 
 const registerBtn = document.getElementById("registerBtn");
-let BASEURL = "http://localhost:8080"
+let BASEURL = "https://petcare-lal5.onrender.com"
 formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -139,7 +139,7 @@ formEl.addEventListener("submit", async (e) => {
         password: passwordInput.value,
       };
 
-      fetch(`http://localhost:8080/user/register`, {
+      fetch(`https://petcare-lal5.onrender.com/user/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -208,7 +208,7 @@ formlogin.addEventListener("submit", async (e) => {
       storeUserInLocalStorage(response);
       Swal.fire(
         'Good job!',
-        data.msg,
+        response.msg,
         'success'
       )
       setTimeout(() => {
@@ -217,14 +217,14 @@ formlogin.addEventListener("submit", async (e) => {
     } else {
       Swal.fire(
         'OOps!',
-        data.msg,
+        response.msg,
         'error'
       )
     }
   } catch (error) {
     Swal.fire(
       'OOps!',
-      data.msg,
+      error,
       'error'
     )
   }
